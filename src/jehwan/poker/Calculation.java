@@ -325,7 +325,10 @@ public class Calculation {
 			} else if(ranks[8].getNumber() < ranks[9].getNumber()){
 				System.out.println("컴퓨터 승리~!");
 				return 0;
-			}
+			} 
+		}else {
+			System.out.println("무승부!");
+			return 0;
 		}
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 스트레이트, 마운틴, 백스트레이트 만 비교
 		return 0;
