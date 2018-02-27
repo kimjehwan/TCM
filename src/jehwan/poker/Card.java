@@ -5,10 +5,6 @@ public class Card {
 	private static String[] suits = { "¢¼", "¢À", "¢½", "¡Ş" };
 	private static String[] ranks = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
 
-	public static String rankAsString(int __rank) {
-		return ranks[__rank];
-	}
-
 	Card(int suit, int rank) {
 		this.rank = rank;
 		this.suit = suit;
@@ -16,6 +12,14 @@ public class Card {
 
 	public @Override String toString() {
 		return suits[suit] + ranks[rank] +" " ;
+	}
+	
+	public static String suitToString(int suit) {
+		return suits[suit];
+	}
+	
+	public static String rankToString(int rank) {
+		return ranks[rank];
 	}
 
 	public int getRank() {

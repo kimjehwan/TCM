@@ -7,24 +7,12 @@ import java.util.Iterator;
 public class Calculation {
 
 	private Rank[] ranks = new Rank[10];
+	private ArrayList<Card> playerCards;
+	private ArrayList<Card> comCards;
 
-	// 생성자에서 카드의 랭크를 판단한다.
 	public Calculation(ArrayList<Card> playerCards, ArrayList<Card> comCards) {
-
-		ranks[0] = isStraightFlush(playerCards);// 로티플, 백스플,스플 을 구분해 주는 메소드
-		ranks[1] = isStraightFlush(comCards);
-
-		ranks[2] = isFourCard_Fullhouse(playerCards);// 포카드, 풀하우스를 구분해 주는 메소드
-		ranks[3] = isFourCard_Fullhouse(comCards);
-
-		ranks[4] = isFlush(playerCards); // 플러시를 구분해주는 메소드
-		ranks[5] = isFlush(comCards);
-
-		ranks[6] = isStraight(playerCards);// 스트레이트, 마운틴, 백스트레이트 를 구분해주는 메소드
-		ranks[7] = isStraight(comCards);
-
-		ranks[8] = isPair(playerCards);// 트리플, 투 페어, 원 페어, 하이카드 를 구분해주는 메소드
-		ranks[9] = isPair(comCards);
+		this.playerCards = playerCards;
+		this.comCards = comCards;
 	}
 
 	private Rank isFourCard_Fullhouse(ArrayList<Card> cardDeck) {
@@ -100,13 +88,13 @@ public class Calculation {
 		}
 
 		if (straight == 3 && flush == 1) {
-			System.out.println("무늬 : " + cardDeck.get(0).getSuit() + ", 로얄 스트레이트 플러시");
+			System.out.println("무늬 : " + Card.suitToString(cardDeck.get(0).getSuit()) + ", 로얄 스트레이트 플러시");
 			return new Rank(3, (cardDeck.get(0).getSuit()) * -1);
 		} else if (straight == 2 && flush == 1) {
-			System.out.println("무늬 : " + cardDeck.get(0).getSuit() + ", 백 스트레이트 플러시");
+			System.out.println("무늬 : " + Card.suitToString(cardDeck.get(0).getSuit()) + ", 백 스트레이트 플러시");
 			return new Rank(2, (cardDeck.get(0).getSuit()) * -1);
 		} else if (straight == 1 && flush == 1) {
-			System.out.println("제일높은숫자 : " + Cards[4] + "스트레이트 플러시");
+			System.out.println("제일높은숫자 : " + Card.rankToString(Cards[4]) + "스트레이트 플러시");
 			return new Rank(1, Cards[4]);
 		} else {
 			return new Rank(0, 0);
@@ -152,21 +140,21 @@ public class Calculation {
 			}
 		}
 		if (count == 0 && check == 4) {
-			System.out.println("제일 높은 숫자는 : " + Straight[4] + ", 하이카드");
+			System.out.println("제일 높은 숫자는 : " + Card.rankToString(Straight[4]) + ", 하이카드");
 			return new Rank(1, Straight[4]);
 		} else if (count == 1 && check == 3) {
-			System.out.println("원페어 숫자는 : " + sameCard1 + ", 원페어");
+			System.out.println("원페어 숫자는 : " + Card.rankToString(sameCard1) + ", 원페어");
 			return new Rank(2, sameCard1);
 		} else if (count == 2 && check == 2 && continue_check == false) {
 			if (sameCard1 > sameCard2) {
-				System.out.println("투페어 숫자는 : " + sameCard1 + ", 투페어");
+				System.out.println("투페어 숫자는 : " + Card.rankToString(sameCard1) + ", 투페어");
 				return new Rank(3, sameCard1);
 			} else {
-				System.out.println("투페어 숫자는 : " + sameCard2 + ", 투페어");
+				System.out.println("투페어 숫자는 : " + Card.rankToString(sameCard2) + ", 투페어");
 				return new Rank(3, sameCard2);
 			}
 		} else if (count == 2 && check == 2 && continue_check == true) {
-			System.out.println("트리플 숫자는 : " + sameCard2 + ", 트리플");
+			System.out.println("트리플 숫자는 : " + Card.rankToString(sameCard2) + ", 트리플");
 			return new Rank(4, sameCard2);
 		} else {
 			return new Rank(0, 0);
@@ -196,7 +184,7 @@ public class Calculation {
 			// 스트레이트플러시 or 스트레이트
 		} else if (Straight[0] == (Straight[1] - 1) && Straight[0] == (Straight[2] - 2)
 				&& Straight[0] == (Straight[3] - 3) && Straight[0] == (Straight[4] - 4)) {
-			System.out.println("제일 높은 숫자 : " + Straight[4] + ", 스트레이트");
+			System.out.println("제일 높은 숫자 : " + Card.rankToString(Straight[4]) + ", 스트레이트");
 			return new Rank(1, Straight[4]);
 		} else {
 			return new Rank(0, 0);
@@ -230,7 +218,7 @@ public class Calculation {
 		Arrays.sort(Ranks);
 
 		if (spade == 5 || clover == 5 || heart == 5 || diamond == 5) {
-			System.out.println("제일 높은 숫자는 : " + Ranks[4] + ", 플러시임");
+			System.out.println("제일 높은 숫자는 : " + Card.rankToString(Ranks[4]) + ", 플러시임");
 			return new Rank(1, Ranks[4]);
 		} else {
 			return new Rank(0, 0);
@@ -239,7 +227,12 @@ public class Calculation {
 	}
 
 	public int calculation() {
+	
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		ranks[0] = isStraightFlush(playerCards);// 로티플, 백스플,스플 을 구분해 주는 메소드
+		ranks[1] = isStraightFlush(comCards);
+		
 		if (ranks[0].getGrade() > ranks[1].getGrade()) {
 			System.out.println("플레이어 승리~!");
 			return 0;
@@ -258,6 +251,10 @@ public class Calculation {
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 로티플,백스플,스플만 비교
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		ranks[2] = isFourCard_Fullhouse(playerCards);// 포카드, 풀하우스를 구분해 주는 메소드
+		ranks[3] = isFourCard_Fullhouse(comCards);
+		
 		if (ranks[2].getGrade() > ranks[3].getGrade()) {
 			System.out.println("플레이어 승리~!");
 			return 0;
@@ -276,6 +273,10 @@ public class Calculation {
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 포카드,풀하우스 만 비교
 		
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		ranks[4] = isFlush(playerCards); // 플러시를 구분해주는 메소드
+		ranks[5] = isFlush(comCards);
+		
 		if (ranks[4].getGrade() > ranks[5].getGrade()) {
 			System.out.println("플레이어 승리~!");
 			return 0;
@@ -294,6 +295,10 @@ public class Calculation {
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 플러시 만 비교
 		
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		ranks[6] = isStraight(playerCards);// 스트레이트, 마운틴, 백스트레이트 를 구분해주는 메소드
+		ranks[7] = isStraight(comCards);
+		
 		if (ranks[6].getGrade() > ranks[7].getGrade()) {
 			System.out.println("플레이어 승리~!");
 			return 0;
@@ -312,6 +317,10 @@ public class Calculation {
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 스트레이트, 마운틴, 백스트레이트 만 비교
 		
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		ranks[8] = isPair(playerCards);// 트리플, 투 페어, 원 페어, 하이카드 를 구분해주는 메소드
+		ranks[9] = isPair(comCards);		
+		
 		if (ranks[8].getGrade() > ranks[9].getGrade()) {
 			System.out.println("플레이어 승리~!");
 			return 0;

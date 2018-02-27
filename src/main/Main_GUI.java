@@ -71,6 +71,9 @@ public class Main_GUI extends JFrame{
 		setVisible(true);
 	}
 	public static void main(String[] args) {
-		new  Main_GUI();
+		//new  Main_GUI();
+		Intro itr = new Intro();
+		itr.intro();
+		
 	}
 }
