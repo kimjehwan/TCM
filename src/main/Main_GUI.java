@@ -19,7 +19,7 @@ public class Main_GUI extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	Main_GUI(){
+	public Main_GUI(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("原朝神原朝神原朝神");
 		
@@ -48,6 +48,7 @@ public class Main_GUI extends JFrame{
 				if((JButton)obj==btn1) {
 					ExButton MathQuiz = new ExButton();
 					MathQuiz.showButton();
+					setVisible(false);
 				}
 			}
 		});

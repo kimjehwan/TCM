@@ -3,6 +3,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
+import main.Main_GUI;
+
 public class ExButton/* <JScrollPane> */ {
 	// 전체적으로 사용하기위해 전역변수를 선언
 	private Frame mainFrame;
@@ -35,8 +37,9 @@ public class ExButton/* <JScrollPane> */ {
 		mainFrame.setLocationRelativeTo(null);
 		mainFrame.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent windowEvent) {
-				mainFrame.setVisible(false);	//서브 프레임이므로 X클릭 시, 보이지 않게 하고(눈 가리고 아웅)
+				mainFrame.setVisible(false);	//서브 프레임이므로 X클릭 시, 보이지 않게 하고
 				mainFrame.dispose();// 자원을 회수
+				new  Main_GUI();
 			}
 		});
 
