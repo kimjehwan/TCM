@@ -1,6 +1,5 @@
 package main;
 
-import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -12,6 +11,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import taehwan.ExButton;
 
 public class Main_GUI extends JFrame{
 	/**
@@ -36,14 +37,18 @@ public class Main_GUI extends JFrame{
 		JLabel lbl1 = new JLabel( img1);
 		this.add(lbl1);
 		
-		JButton btn1 = new JButton(" Æ÷Ä¿ ",img2);
+		JButton btn1 = new JButton("Æ÷Ä¿ ",img2);
 		btn1.setFont(new Font("¸¼Àº°íµñ", Font.BOLD, 20));
 		btn1.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btn1.setPreferredSize(new Dimension( 180 , 70 ));
 		btn1.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				btn1.setBackground(Color.RED);				
+			public void actionPerformed(ActionEvent e) {
+				Object obj = e.getSource();
+				if((JButton)obj==btn1) {
+					ExButton MathQuiz = new ExButton();
+					MathQuiz.showButton();
+				}
 			}
 		});
 		this.add(btn1);
@@ -70,10 +75,11 @@ public class Main_GUI extends JFrame{
 		setSize(420, 600);
 		setVisible(true);
 	}
+	
 	public static void main(String[] args) {
-		//new  Main_GUI();
-		Intro itr = new Intro();
-		itr.intro();
+		new  Main_GUI();
+		//Intro itr = new Intro();
+		//itr.intro();
 		
 	}
 }
