@@ -69,10 +69,13 @@ public class Intro {
 			while (rs.next()) {
 				String dbId = rs.getString(1);			
 				String dbPw = rs.getString(2);
+				int dbPscore = rs.getInt(3);
+				int dbSscore = rs.getInt(4);
+				int dbQscore = rs.getInt(5);
 
 
 				if(id.equals(dbId) && pw.equals(dbPw)) {
-					Player.setId(dbId);
+					new Player(dbId,dbPscore,dbSscore,dbQscore);
 					System.out.println("로그인 성공");
 					check=true;
 					break;
@@ -173,7 +176,7 @@ public class Intro {
         try {
             // SQL 문장을 만들고 만약 문장이 질의어(SELECT문)라면
             // 그 결과를 담을 ResulSet 객체를 준비한 후 실행시킨다.
-            String quary1 = "INSERT INTO TCM_USER VALUES ( '" + id + "', '" + pw + "')";
+            String quary1 = "INSERT INTO TCM_USER VALUES ( '" + id + "', '" + pw + "',1000,1000,1000)";
             String quary2 = "SELECT * FROM TCM_USER";
 
             conn = DBConnection.getConnection();

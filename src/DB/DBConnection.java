@@ -12,7 +12,7 @@ public class DBConnection
         {
             Connection conn = null;
             try {
-                String user = "tcmDB"; // DB에 접속할 계정명
+                String user = "c##tcmDB"; // DB에 접속할 계정명
                 String pw = "1234";	//DB 계정의 비밀번호
                 String url = "jdbc:oracle:thin:@localhost:1521:orcl";
                 

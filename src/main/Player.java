@@ -6,6 +6,13 @@ public class Player {
 	private static int sScore;
 	private static int qScore;
 	
+	public Player(String dbId, int dbPscore, int dbSscore, int dbQscore) {
+		this.id = dbId;
+		this.pScore = dbPscore;
+		this.sScore  = dbSscore;
+		this.qScore = dbQscore;
+	}
+
 	public static String getId() {
 		return id;
 	}

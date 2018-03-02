@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 
+import main.Player;
+
 public class Deck {
 	final static int MAX_NUM = 52;
 	final static int MAX_CARD = 5;
