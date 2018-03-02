@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import jehwan.poker.PokerMain;
 import taehwan.ExButton;
 
 public class Main_GUI extends JFrame{
@@ -58,6 +59,17 @@ public class Main_GUI extends JFrame{
 		btn2.setFont(new Font("¸¼Àº°íµñ", Font.BOLD, 20));
 		btn2.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btn2.setPreferredSize(new Dimension( 180 , 70 ));
+		btn2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Object obj = e.getSource();
+				if((JButton)obj==btn2) {
+					PokerMain poker = new PokerMain();
+					poker.run();
+					setVisible(false);
+				}
+			}
+		});
 		this.add(btn2);
 		
 		JButton btn3 = new JButton(" ¼¸´Ù ",img3);

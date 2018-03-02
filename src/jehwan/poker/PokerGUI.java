@@ -3,6 +3,8 @@ package jehwan.poker;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
@@ -14,10 +16,20 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.LineBorder;
 
+import main.Main_GUI;
+
 public class PokerGUI  extends JFrame{
 
 	public PokerGUI(ArrayList<Card> playerCards, ArrayList<Card> comCards) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JFrame frame = this;
+		frame.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent windowEvent) {
+				frame.setVisible(false);	//서브 프레임이므로 X클릭 시, 보이지 않게 하고
+				frame.dispose();// 자원을 회수
+				new  Main_GUI();
+			}
+		});
+
 		setTitle("포커게임");
 		
 		//이 부분에 버튼, 레이블, 체크박스 등을 코딩함
@@ -118,22 +130,6 @@ public class PokerGUI  extends JFrame{
 		lbl12.setBounds(794, 540, 156, 223);
 		this.add(lbl12);
 	
-/*			
-		JLabel comProfile1 = new JLabel("플레이어 프로필");
-		comProfile1.setBorder(new LineBorder(Color.red, 5));
-		comProfile1.setPreferredSize(new Dimension(200,200));
-		this.add(comProfile1);
-		
-		JLabel lbl11 = new JLabel(img1);
-		this.add(lbl11);
-		JLabel lbl12 = new JLabel(img1);
-		this.add(lbl12);
-		JLabel lbl13 = new JLabel(img1);
-		this.add(lbl13);
-		JLabel lbl14 = new JLabel(img1);
-		this.add(lbl14);
-		JLabel lbl15 = new JLabel(img1);
-		this.add(lbl15);*/
 		//--------------------------------------------------------------			
 		setSize(1000, 800);
 		setVisible(true);
