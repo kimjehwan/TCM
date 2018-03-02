@@ -72,6 +72,7 @@ public class Intro {
 
 
 				if(id.equals(dbId) && pw.equals(dbPw)) {
+					Player.setId(dbId);
 					System.out.println("로그인 성공");
 					check=true;
 					break;

@@ -11,9 +11,6 @@ public class Deck {
 	private ArrayList<Card> comCards;
 	private int[] playerCard = new int[MAX_CARD];
 	private int[] comCard = new int[MAX_CARD];
-	
-	//private ArrayList<Card> testCards1= new ArrayList<Card>();
-	//private ArrayList<Card> testCards2= new ArrayList<Card>(); //카드 테스트 용도
 
 	public Deck() {
 		init();
@@ -83,22 +80,6 @@ public class Deck {
 
 		Calculation cal = new Calculation(playerCards, comCards);
 		cal.calculation();
-		
-		/*testCards1.add(new Card(0,0));
-		testCards1.add(new Card(0,9));
-		testCards1.add(new Card(0,10));
-		testCards1.add(new Card(0,11));
-		testCards1.add(new Card(0,12));
-		
-		testCards2.add(new Card(1,0));
-		testCards2.add(new Card(1,9));
-		testCards2.add(new Card(1,10));
-		testCards2.add(new Card(1,11));
-		testCards2.add(new Card(1,12));
-
-		print(testCards1,testCards2);
-		Calculation test = new Calculation(testCards1, testCards2);
-		test.calculation();*/  //카드 테스트 용도
 	}
 	
 	public void print(ArrayList<Card> playerCards, ArrayList<Card> comCards) {

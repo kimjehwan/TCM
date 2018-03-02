@@ -228,6 +228,8 @@ public class Calculation {
 
 	public int calculation() {
 	
+		new PokerGUI(playerCards, comCards);
+		
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		ranks[0] = isStraightFlush(playerCards);// 로티플, 백스플,스플 을 구분해 주는 메소드
