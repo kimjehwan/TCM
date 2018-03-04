@@ -137,6 +137,7 @@ public class Hangman {
 	}
 
 	public char readChar() {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		String user;
 

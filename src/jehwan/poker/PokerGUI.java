@@ -24,6 +24,10 @@ import main.Player;
 
 public class PokerGUI  extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int comScore = 1000;
 	private int radioScore;
 	

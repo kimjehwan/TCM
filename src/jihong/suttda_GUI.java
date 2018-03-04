@@ -7,6 +7,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class suttda_GUI extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	suttda_GUI(int playerCard[],int comCard[]) {
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setTitle("인생은 한방 섯다");

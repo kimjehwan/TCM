@@ -1,9 +1,5 @@
 package sanghee;
 
-
-import java.io.IOException;
-
-
 public class hangmanMain {
 
 	  public static void main(String[] args)  {

@@ -10,8 +10,6 @@ public class Calculation {
 	private ArrayList<Card> playerCards;
 	private ArrayList<Card> comCards;
 	private String winner;
-	private String winnerDeck=null;
-
 	public Calculation(ArrayList<Card> playerCards, ArrayList<Card> comCards) {
 		this.playerCards = playerCards;
 		this.comCards = comCards;

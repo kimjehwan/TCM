@@ -1,11 +1,21 @@
 package taehwan;
 
-import java.awt.*;
-import java.awt.event.*;
-
-import main.Main_GUI;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class SUB extends Frame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// 우리의 강한친구 전역변수.
 	Button open; // 버튼을 위한 변수입니다.
 	Dimension dm; // 치수인데 가로와 세로 값을 저장하는 용도입니다. 프레임 크기요.

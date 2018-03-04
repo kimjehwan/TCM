@@ -10,6 +10,7 @@ import sanghee.hangmanMain;
 public class Intro {
 	
 	public void intro() {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		int choice=0;
 		
@@ -42,6 +43,7 @@ public class Intro {
 	}
 
 	private void signIn() {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		String id, pw;
 		boolean check=false;
@@ -64,6 +66,7 @@ public class Intro {
 	}
 
 	private void choiceGame() {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		int choice=0;
 		do {
@@ -100,6 +103,7 @@ public class Intro {
 
 	private void signUp() {
 		
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		String id, pw;
 		boolean check=false;

@@ -13,6 +13,7 @@ public final class Suttda {
 		int draw = 0;
 		int lose = 0;
 		String again;
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		do {
 			// 카드 섞기
@@ -108,7 +109,7 @@ public final class Suttda {
 
 	// 유저와 컴퓨터에게 카드를 분배한다.
 	static void getCard(int[] userCard, int[] comCard, int[] card) {
-		int temp;
+
 		// card배열은 이미 shuffle되어 있기 때문에 순서대로 주어도
 		// 랜덤한 카드를 받는다.
 		userCard[0] = card[0];
