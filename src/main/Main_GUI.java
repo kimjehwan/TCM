@@ -47,15 +47,15 @@ public class Main_GUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				Object obj = e.getSource();
 				if((JButton)obj==btn1) {
-					ExButton MathQuiz = new ExButton();
-					MathQuiz.showButton();
+					PokerMain poker = new PokerMain();
+					poker.run();
 					setVisible(false);
 				}
 			}
 		});
 		this.add(btn1);
 		
-		JButton btn2 = new JButton(" ∫Ì∑¢¿Ë ",img4);
+		JButton btn2 = new JButton(" ƒ˚¡Ó∞‘¿” ",img4);
 		btn2.setFont(new Font("∏º¿∫∞ÌµÒ", Font.BOLD, 20));
 		btn2.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btn2.setPreferredSize(new Dimension( 180 , 70 ));
@@ -64,8 +64,8 @@ public class Main_GUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				Object obj = e.getSource();
 				if((JButton)obj==btn2) {
-					PokerMain poker = new PokerMain();
-					poker.run();
+					ExButton MathQuiz = new ExButton();
+					MathQuiz.showButton();
 					setVisible(false);
 				}
 			}
@@ -78,7 +78,7 @@ public class Main_GUI extends JFrame{
 		btn3.setPreferredSize(new Dimension( 180 , 70 ));
 		this.add(btn3);
 		
-		JButton btn4 = new JButton(" ΩΩ∑‘∏”Ω≈ ",img5);
+		JButton btn4 = new JButton(" «‡∏«∞‘¿” ",img5);
 		btn4.setFont(new Font("∏º¿∫∞ÌµÒ", Font.BOLD, 20));
 		btn4.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btn4.setPreferredSize(new Dimension( 180 , 70 ));
@@ -92,7 +92,7 @@ public class Main_GUI extends JFrame{
 	public static void main(String[] args) {
 		new  Main_GUI();
 		Intro itr = new Intro();
-		itr.intro();
-		
+		//itr.intro();
+		itr.choiceGame();//DBø¨µøΩ√ private∑Œ ±≥√º
 	}
 }

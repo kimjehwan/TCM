@@ -1,7 +1,7 @@
 package sanghee;
 
 
-import java.io.*;
+import java.util.Scanner;
 
 public class Hangman 
 {
@@ -11,13 +11,12 @@ public class Hangman
     int remaninder; //맞춤 문자열 (못 맞추고 남아있는 문자의 수)
     int failed; //실패한 횟수
     
-    public Hangman() throws IOException
+    public Hangman() 
     {
     	hiddenString="hello";//문제는 "hello"
     }
     
-    public int playGame() throws IOException
-    {
+    public int playGame()       {
     	outputString = new StringBuffer();
     	
     	for(int i=0; i<hiddenString.length(); i++) { //hiddenString의 문자 수만큼 '-'출력
@@ -69,76 +68,75 @@ public class Hangman
     
     public void drawMan()
     {
-     System.out.println("┏━━━━━━┓");
-     System.out.println("┃      ┃ ");
+     System.out.println("┌───┐");
+     System.out.println("│   │ ");
      
      switch(failed) { //실패횟수에 따라 교수대에 사람을 그림
       case 0:
-    	  System.out.println("    ┃ ");
-          System.out.println("    ┃ ");
-    	  System.out.println("    ┃ ");
-          System.out.println("    ┃ ");
-    	  System.out.println("    ┃ ");
-          System.out.println("    ┃ ");
+    	  System.out.println("    │");
+          System.out.println("    │");
+    	  System.out.println("    │");
+          System.out.println("    │");
+    	  System.out.println("    │");
+          System.out.println("    │");
           break;
      case 1:
-   	     System.out.println(" Θ  ┃ "); //1번 실패한 경우 머리 그림 
-         System.out.println("    ┃ ");
-	     System.out.println("    ┃ ");
-         System.out.println("    ┃ ");
-	     System.out.println("    ┃ ");
-         System.out.println("    ┃ ");
+   	     System.out.println("Θ   │"); //1번 실패한 경우 머리 그림 
+         System.out.println("    │");
+	     System.out.println("    │ ");
+         System.out.println("    │ ");
+	     System.out.println("    │ ");
+         System.out.println("    │ ");
          break;
      case 2:
-   	     System.out.println(" Θ  ┃ "); 
-         System.out.println(" ┏┃ ┃ "); //2번 실패한 경우 왼팔 그림 
-	     System.out.println("    ┃ ");
-         System.out.println("    ┃ ");
-	     System.out.println("    ┃ ");
-         System.out.println("    ┃ ");
+   	     System.out.println("Θ   │ "); 
+         System.out.println("Θ   │"); //2번 실패한 경우 왼팔 그림 
+	     System.out.println("    │ ");
+         System.out.println("    │ ");
+	     System.out.println("    │ ");
+         System.out.println("    │ ");
          break; 
      case 3:
-  	     System.out.println(" Θ  ┃ "); 
-         System.out.println("┏┃  ┃ "); 
-	     System.out.println(" ┃  ┃ "); //3번 실패한 경우 몽통 그림 
-         System.out.println("    ┃ ");
-	     System.out.println("    ┃ ");
-         System.out.println("    ┃ ");
+  	     System.out.println(" Θ  │ "); 
+         System.out.println(" Θ  │ "); 
+	     System.out.println("    │ "); //3번 실패한 경우 몽통 그림 
+         System.out.println("    │ ");
+	     System.out.println("    │ ");
+         System.out.println("    │ ");
          break; 
     case 4:
-  	     System.out.println(" Θ  ┃ "); 
-         System.out.println("┏┃┓ ┃ "); //4번 실패한 경우 오른쪽 그림 
-	     System.out.println(" ┃  ┃ "); 
-         System.out.println("    ┃ ");
-	     System.out.println("    ┃ ");
-         System.out.println("    ┃ ");
+  	     System.out.println(" Θ  │ "); 
+         System.out.println(" Θ  │ "); //4번 실패한 경우 오른쪽 그림 
+	     System.out.println(" Θ  │  "); 
+         System.out.println("    │ ");
+	     System.out.println("    │ ");
+         System.out.println("    │ ");
          break; 
     case 5:
- 	     System.out.println(" Θ  ┃ "); 
-         System.out.println("┏┃┓ ┃ "); 
-	     System.out.println(" ┃  ┃ "); 
-         System.out.println(" ┏  ┃ "); //5번 실패한 경우 오른쪽 그림 
-	     System.out.println(" ┃  ┃ ");
-         System.out.println("    ┃ ");
+ 	     System.out.println(" Θ  │ "); 
+         System.out.println(" Θ  │ "); 
+	     System.out.println(" Θ  │ "); 
+         System.out.println(" Θ  │ "); //5번 실패한 경우 오른쪽 그림 
+	     System.out.println("    │ ");
+         System.out.println("    │ ");
          break;   
     case 6:
-	     System.out.println(" Θ  ┃ "); 
-         System.out.println("┏┃┓ ┃ "); 
-	     System.out.println(" ┃  ┃ "); 
-         System.out.println("┏┃┓ ┃ "); //6번 실패한 경우 오른쪽 그림 
-	     System.out.println("┃ ┃ ┃ ");
-         System.out.println("    ┃ ");
+	     System.out.println(" Θ  │ "); 
+         System.out.println(" Θ  │ "); 
+	     System.out.println(" Θ  │ "); 
+         System.out.println(" Θ  │ "); //6번 실패한 경우 오른쪽 그림 
+	     System.out.println(" Θ  │ ");
+         System.out.println("    │ ");
          break; 
     }  
   }
     
-    public char readChar() throws IOException
-    {
-     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+    public char readChar()    {
+    Scanner sc = new Scanner(System.in);
      String user;
      
      System.out.println("1 문자를 입력하세요:");
-     user = in.readLine(); //키보드로부터 한줄을 입력
+     user = sc.nextLine(); //키보드로부터 한줄을 입력
      return user.charAt(0); //입력받은 문자열 중 첫번째 문자를 반환
     }
 
