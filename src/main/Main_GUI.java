@@ -92,7 +92,6 @@ public class Main_GUI extends JFrame{
 	public static void main(String[] args) {
 		new  Main_GUI();
 		Intro itr = new Intro();
-		//itr.intro();
-		itr.choiceGame();//DB연동시 private로 교체
+		itr.intro();
 	}
 }

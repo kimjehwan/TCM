@@ -63,7 +63,7 @@ public class Intro {
 
 	}
 
-	public void choiceGame() {
+	private void choiceGame() {
 		Scanner sc = new Scanner(System.in);
 		int choice=0;
 		do {
