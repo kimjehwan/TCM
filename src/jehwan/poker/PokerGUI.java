@@ -34,7 +34,8 @@ public class PokerGUI  extends JFrame{
 				DBQuery.savePoker();
 				frame.setVisible(false);	//서브 프레임이므로 X클릭 시, 보이지 않게 하고
 				frame.dispose();// 자원을 회수
-				new  Main_GUI();
+				Main_GUI.frame.setVisible(true);
+				//new  Main_GUI();
 			}
 		});
 

@@ -10,6 +10,13 @@ import main.Player;
 public class DBQuery 
 {
 	public boolean logIn(String id, String pw, boolean check) {
+		
+		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		System.out.println("입력받은 id : "+id);
+		System.out.println("입력받은 pw : "+pw);
+		System.out.println("입력받은 check : "+check);
+		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		
 		Connection conn = null; // DB연결된 상태(세션)을 담은 객체
 		PreparedStatement pstm = null; // SQL 문을 나타내는 객체
 		ResultSet rs = null; // 쿼리문을 날린것에 대한 반환값을 담을 객체
@@ -61,7 +68,7 @@ public class DBQuery
 		return check;
 	}
 	
-	public void signUp(String id, String pw, boolean check) {
+	public boolean signUp(String id, String pw, boolean check) {
 		Connection conn = null; // DB연결된 상태(세션)을 담은 객체
         PreparedStatement pstm = null;  // SQL 문을 나타내는 객체
         ResultSet rs = null;  // 쿼리문을 날린것에 대한 반환값을 담을 객체
@@ -89,9 +96,10 @@ public class DBQuery
             }
             if(check) {
             	System.out.println("회원가입 성공");
-            	conn.prepareStatement(quary1).executeQuery();              
+            	conn.prepareStatement(quary1).executeQuery();   
+            	check=true;
             }else {
-            	return;
+            	check=false;
             }
         } catch (SQLException sqle) {
             System.out.println("INSERT문에서 예외 발생");
@@ -106,7 +114,8 @@ public class DBQuery
             }catch(Exception e){
                 throw new RuntimeException(e.getMessage());
             }            
-        }  
+        }
+		return check;  
 	}
 	
 	public static void savePoker() {

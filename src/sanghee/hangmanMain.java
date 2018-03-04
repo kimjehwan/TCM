@@ -17,13 +17,17 @@ public class hangmanMain {
 	        
 	         System.out.println();
 	         if(result<=2) { //실패횟수에 따라 메세지 출력
-	        	 System.out.println("참 잘했어요!");
+	        	 System.out.println("★☆ 정   답 ☆★");
+	        	 System.out.println("   참 잘했어요!");
 	          }else if (result<=3) {
-	        	 System.out.println("잘했어요!");
+		         System.out.println("★☆ 정   답 ☆★");
+	        	 System.out.println("     잘했어요!");
 	          }else if (result<=4) {
-	        	 System.out.println("보통이네요!");
+		         System.out.println("★☆ 정   답 ☆★");
+	        	 System.out.println("   보통이네요!");
 	          }else {
-	        	 System.out.println("분발하세요!");
+	        	 System.out.println("★게 임 오 버★");
+	        	 System.out.println("  분발하세요!");
 	          }
 		
 	}

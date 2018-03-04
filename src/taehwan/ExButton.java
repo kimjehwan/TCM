@@ -16,6 +16,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Random;
 
+import main.Main_GUI;
+
 /*************************************************************************/
 public class ExButton {
 	// 전체적으로 사용될 전역변수
@@ -64,7 +66,10 @@ public class ExButton {
 		mainFrame.setLocationRelativeTo(null); // 실행하면 화면의 가운데로 나오게 합니다.
 		mainFrame.addWindowListener(new WindowAdapter() { // 닫기 버튼을 누르면??
 			public void windowClosing(WindowEvent windowEvent) {
-				System.exit(0); // 스크립트를 종료합니다.
+				//System.exit(0); // 스크립트를 종료합니다.
+				mainFrame.setVisible(false);
+				mainFrame.dispose();
+				Main_GUI.frame.setVisible(true);
 			}
 		}); // 리스너 처리구간
 

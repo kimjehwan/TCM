@@ -66,7 +66,7 @@ public class SUB extends Frame implements ActionListener {
 				// System.exit(0);
 				// 아무일도 일어나지 않았다고 한다.
 				 dispose();
-				 new Main_GUI();
+				 //new Main_GUI();
 			}
 		});
 	}
@@ -77,7 +77,7 @@ public class SUB extends Frame implements ActionListener {
 	public void actionPerformed(ActionEvent e) { // 버튼 눌렀나?!
 		// 결과를 봤으니 나가야지.
 		dispose();
-		new Main_GUI();
+		//new Main_GUI();
 		// System.exit(0);
 
 	}
