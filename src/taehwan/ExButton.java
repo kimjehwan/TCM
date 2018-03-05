@@ -76,17 +76,17 @@ public class ExButton {
 		// 상단에 문제를 내는 레이블
 		headerLabel = new Label(); // 새로운 레이블 생성자
 		headerLabel.setAlignment(Label.CENTER); // 상단의 레이블이 가운데정렬을 합니다.
-		headerLabel.setText("" + quiz + " + " + quiz2 + " = ? "); // 문제를 출력합니다.
-		headerLabel.setFont(new Font("", Font.BOLD, 50)); // 글씨의 크기를 설정합니다. 크고굵은 글씨로 만듭니다.
+		headerLabel.setText("   " + quiz + "  +  " + quiz2 + "  = ?  " + ""); // 문제를 출력합니다.
+		headerLabel.setFont(new Font("", Font.BOLD, 60)); // 글씨의 크기를 설정합니다. 크고굵은 글씨로 만듭니다.
 
 		// 하단에 점수를 보여주는 레이블
 		statusLabel = new Label(); // 새로운 레이블 생성자
 		statusLabel.setText("점수 : " + score); // 점수를 출력합니다.
 		statusLabel.setAlignment(Label.CENTER); // 하단의 레이블이 가운데정렬을 합니다.
-		statusLabel.setFont(new Font("", Font.BOLD, 50)); // 글씨의 크기를 설정합니다. 크고굵은 글씨로 만듭니다.
+		statusLabel.setFont(new Font("", Font.BOLD, 60)); // 글씨의 크기를 설정합니다. 크고굵은 글씨로 만듭니다.
 
 		controlPanel = new Panel(); // 버튼을 생성합니다.
-		controlPanel.setLayout(new FlowLayout()); // 버튼의 레이아웃을 만듭니다.
+		controlPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 100, 10)); // 버튼의 레이아웃을 만듭니다.
 
 		// 지금까지 잘 조리된 레이블을 프레임에 찰지게 발라주면?!
 		// 프레임에 레이블이 나옵니다. 뚜둥
@@ -102,7 +102,8 @@ public class ExButton {
 	public int showButton() {
 		int o = 0; // 버튼 만들고 나서 반환받기 위한 변수.
 		// 선택지에 들어가는 난수 계산
-		int ran; // 2개의 답안이 서로 다르게 나오게 하기 위한 변수.
+		int ran, W; // 2개의 답안이 서로 다르게 나오게 하기 위한 변수.
+		Random R = new Random();
 		Random fan = new Random(); // 새로운 난수 생성.
 		// 아래는 문제가 나올 때마다 선택지가 달라짐.
 		// 너무 길다...
@@ -158,8 +159,14 @@ public class ExButton {
 		}
 			break;
 		case 9: {
-			A1 = ran;
-			A2 = 9;
+			W = R.nextInt(1);
+			if (W == 0) {
+				A1 = ran;
+				A2 = 9;
+			} else if (W == 1) {
+				A2 = ran;
+				A1 = 9;
+			}
 		}
 			break;
 		default: // 예외 같은거는 없다, 넌 구경이나 해.
@@ -184,7 +191,7 @@ public class ExButton {
 		// 왼쪽 버튼 눌렀을 때 판정
 		btnfirst.addActionListener(new ActionListener() { // 이 녀석은 버튼을 감시하고 있다.
 			public void actionPerformed(ActionEvent e) { // 버튼을 눌렀나??
-				btnfirst.setBackground(Color.YELLOW); // 누르면 노란색으로 바뀝니다.
+				btnfirst.setBackground(Color.GREEN); // 누르면 색이 바뀝니다.
 				// 누른게 맞나 판정함
 				int fan = 0; // 판정 값을 받아줄 변수 그래봤자 받을건 0 밖에 없다.
 				int fun;
@@ -199,7 +206,7 @@ public class ExButton {
 		// 오른쪽 버튼 눌렀을 때 판정
 		btnSecond.addActionListener(new ActionListener() { // 이 녀석은 버튼을 감시하고 있다.
 			public void actionPerformed(ActionEvent e) { // 버튼을 눌렀나??
-				btnSecond.setBackground(Color.YELLOW); // 누르면 노란색으로 바뀝니다.
+				btnSecond.setBackground(Color.GREEN); // 누르면 색이 바뀝니다.
 				// 누른게 맞나 판정함
 				int fan = 0; // 판정 값을 받아줄 변수 그래봤자 받을건 0 밖에 없다.
 				int fun;

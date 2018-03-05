@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import main.Player;
+
 public class SUB extends Frame implements ActionListener {
 	/**
 	 * 
@@ -38,7 +40,7 @@ public class SUB extends Frame implements ActionListener {
 		dm = getSize(); // 해상도 사이즈를 확인?!
 
 		// 게임오버 버튼 생성.. 버튼 안에 결과를 출력
-		open = new Button("당신의 점수는 " + ExButton.score + " 점 입니다."); // 메인에서 점수 가져와서 출력.
+		open = new Button(Player.getId() + " 님의 점수는 " + ExButton.score + " 점 입니다."); // 메인에서 점수 가져와서 출력.
 		System.out.println("당신의 점수는 " + ExButton.score + " 점 입니다."); // 디버깅
 		open.setFont(new Font("맑은고딕", Font.BOLD, 30)); // 버튼에 있는 글씨의 폰트
 		open.setCursor(new Cursor(Cursor.HAND_CURSOR)); // 커서 갖다대면 커서 외형이 변경됨
