@@ -53,6 +53,7 @@ public class ExButton {
 		Mathquiz.showButton(); // 버튼을 만들러 갑니다.
 
 	}
+	
 
 	/*************************************************************************/
 
@@ -233,6 +234,7 @@ public class ExButton {
 			if (Answer != To) { // 틀린 값을 입력했는지 확인..
 				score += 18 + To; // 답과 문제가 틀리면 가산.
 				System.out.println("0 정답\t" + " 문제 : " + To + ",\t 선택 : " + Answer + "\n"); // 디버깅
+				main(null); // 메인이 받을 값이 없으므로 그냥 돌아갑니다.
 			} else if (Answer == To) {
 				youfald = 1; // 문제가 틀렸음을 적용.
 				System.out.println("0 오답\t" + " 문제 : " + To + ",\t 선택 : " + Answer + "\n"); // 디버깅
@@ -245,6 +247,7 @@ public class ExButton {
 			if (Answer == To) { // 9를 입력했는지 확인.
 				score += 18 + To; // 답과 문제가 같으면 가산.
 				System.out.println("9 정답\t" + " 문제 : " + To + ",\t 선택 : " + Answer + "\n"); // 디버깅
+				main(null); // 메인이 받을 값이 없으므로 그냥 돌아갑니다.
 			} else if (Answer != To) {
 				youfald = 1; // 문제가 틀렸음을 적용.
 				System.out.println("9 오답\t" + " 문제 : " + To + ",\t 선택 : " + Answer + "\n"); // 디버깅
@@ -253,7 +256,7 @@ public class ExButton {
 			}
 		}
 		statusLabel.setText("점수 : " + score); // 점수를 갱신
-		main(null); // 메인이 받을 값이 없으므로 그냥 돌아갑니다.
+		//
 
 		youof = youfald;
 		// 틀린것을 확인하고 결과창을 출력

@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import main.Main_GUI;
 import main.Player;
 
 public class SUB extends Frame implements ActionListener {
@@ -78,6 +79,7 @@ public class SUB extends Frame implements ActionListener {
 				// System.exit(0);
 				// 아무일도 일어나지 않았다고 한다.
 				 dispose();
+					Main_GUI.frame.setVisible(true);
 				 //new Main_GUI();
 			}
 		});
@@ -89,6 +91,7 @@ public class SUB extends Frame implements ActionListener {
 	public void actionPerformed(ActionEvent e) { // 버튼 눌렀나?!
 		// 결과를 봤으니 나가야지.
 		dispose();
+		Main_GUI.frame.setVisible(true);
 		//new Main_GUI();
 		// System.exit(0);
 
