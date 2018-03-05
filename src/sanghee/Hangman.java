@@ -80,8 +80,8 @@ public class Hangman {
 			System.out.println("┴");
 			break;
 		case 1:
-			System.out.println("│           Θ");// 1번 실패한 경우 머리 그림
-			System.out.println("│           ┼");
+			System.out.println("│        Θ");// 1번 실패한 경우 머리 그림
+			System.out.println("│        ┼");
 			System.out.println("│");
 			System.out.println("│");
 			System.out.println("│");
@@ -89,43 +89,43 @@ public class Hangman {
 			System.out.println("┴");
 			break;
 		case 2:
-			System.out.println("│           Θ");// 2번 실패한 경우 머리 그림
-			System.out.println("│       ┌┼");
-			System.out.println("│       ┘   ");
+			System.out.println("│        Θ");// 2번 실패한 경우 머리 그림
+			System.out.println("│     ┌┼");
+			System.out.println("│     ┘   ");
 			System.out.println("│");
 			System.out.println("│");
 			System.out.println("│");
 			System.out.println("┴");
 			break;
 		case 3:
-			System.out.println("│           Θ");// 3번 실패한 경우 머리 그림
-			System.out.println("│       ┌┼┐");
-			System.out.println("│       ┘│└ ");
+			System.out.println("│        Θ");// 3번 실패한 경우 머리 그림
+			System.out.println("│     ┌┼┐");
+			System.out.println("│     ┘│└ ");
 			System.out.println("│");
 			System.out.println("│");
 			System.out.println("│");
 			System.out.println("┴");
 			break;
 		case 4:
-			System.out.println("│           Θ");// 4번 실패한 경우 머리 그림
-			System.out.println("│       ┌┼┐");
-			System.out.println("│       ┘│└ ");
-			System.out.println("│       ┌┴");
-			System.out.println("│       │");
-			System.out.println("│       │");
+			System.out.println("│        Θ");// 4번 실패한 경우 머리 그림
+			System.out.println("│     ┌┼┐");
+			System.out.println("│     ┘│└ ");
+			System.out.println("│     ┌┴");
+			System.out.println("│     │");
+			System.out.println("│     │");
 			System.out.println("┴");
 			break;
 		case 5:
-			System.out.println("│           Θ");// 5번 실패한 경우 머리 그림
-			System.out.println("│       ┌┼┐");
-			System.out.println("│       ┘│└ ");
-			System.out.println("│       ┌┴┐");
-			System.out.println("│       │    │");
-			System.out.println("│       │    │");
+			System.out.println("│        Θ");// 5번 실패한 경우 머리 그림
+			System.out.println("│     ┌┼┐");
+			System.out.println("│     ┘│└ ");
+			System.out.println("│     ┌┴┐");
+			System.out.println("│     │   │");
+			System.out.println("│     │   │");
 			System.out.println("┴");
 			break;
 		case 6:
-			System.out.println("│           Θ");// 6번 실패한 경우 머리 그림
+			System.out.println("│        Θ");// 6번 실패한 경우 머리 그림
 			System.out.println("│");
 			System.out.println("│");
 			System.out.println("│");
