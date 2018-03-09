@@ -37,6 +37,4 @@ public class Player {
 	public static void setqScore(int qScore) {
 		Player.qScore = qScore;
 	}
-
-	
 }

@@ -21,6 +21,7 @@ import javax.swing.JTextField;
 import DB.DBQuery;
 import jehwan.poker.PokerMain;
 import taehwan.ExButton;
+import taehwan.Mainbar;
 
 public class Main_GUI extends JFrame{
 	public static JFrame frame;
@@ -185,8 +186,8 @@ public class Main_GUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				Object obj = e.getSource();
 				if((JButton)obj==btn2) {
-					ExButton MathQuiz = new ExButton();
-					MathQuiz.showButton();
+					Mainbar b = new Mainbar();
+					b.main(null);
 					setVisible(false);
 				}
 			}
