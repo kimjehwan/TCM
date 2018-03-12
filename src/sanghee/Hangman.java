@@ -3,17 +3,18 @@ package sanghee;
 import java.util.Scanner;
 
 public class Hangman {
-	String hiddenString; // 숨겨진 문자열(문제)
-	StringBuffer outputString;// 플레이어의 입력에 따른 결과로 보여줄 문자열
-	StringBuffer inputString; // 플레이어가 입력한 문자들의 모임
-	int remaninder; // 맞춤 문자열 (못 맞추고 남아있는 문자의 수)
-	int failed; // 실패한 횟수
+	static String hiddenString; // 숨겨진 문자열(문제)
+	static StringBuffer outputString;// 플레이어의 입력에 따른 결과로 보여줄 문자열
+	static StringBuffer inputString; // 플레이어가 입력한 문자들의 모임
+	static int remaninder; // 못 맞추고 남아있는 문자의 수
+	static int failed; // 실패한 횟수
 
 	public Hangman() {
 		hiddenString = "hello";// 문제는 "hello"
 	}
 
 	public int playGame() {
+		
 		outputString = new StringBuffer();
 
 		for (int i = 0; i < hiddenString.length(); i++) { // hiddenString의 문자 수만큼 '-'출력
@@ -27,6 +28,7 @@ public class Hangman {
 
 		System.out.println("\n단어(" + hiddenString.length() + "글자" + "): " + outputString);
 		drawMan(); // 교수대 그리기
+		new hangmanGUI(outputString);
 
 		do {
 			checkChar(readChar()); // 한 문자를 입력받아서 정답인지 확인
@@ -34,10 +36,11 @@ public class Hangman {
 			drawMan(); // 입력문자에 따른 교수대 출력
 		} while ((remaninder > 0) && (failed < 6)); // 문제를 완전히 맞추거나 6번이상 틀릴때까지 반복
 
+		
 		return failed;
 	}
 
-	public void checkChar(char guess) {
+	public static void checkChar(char guess) {
 		boolean already = false;
 		for (int i = 0; i < inputString.length(); i++) {
 			if (inputString.charAt(i) == guess) { // 이미입력했던 문자인지 조사

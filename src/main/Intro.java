@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import DB.DBQuery;
 import jehwan.poker.PokerMain;
-import jihong.Suttda;
+import jihong.Suttda_main;
 import sanghee.hangmanMain;
 
 public class Intro {
@@ -82,7 +82,7 @@ public class Intro {
 				break;
 			case 2:
 				System.out.println("섯다게임 진입");
-				new Suttda();
+				new Suttda_main();
 				break;
 			case 3:
 				System.out.println("퀴즈게임 진입");

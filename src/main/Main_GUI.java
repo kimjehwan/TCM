@@ -20,6 +20,8 @@ import javax.swing.JTextField;
 
 import DB.DBQuery;
 import jehwan.poker.PokerMain;
+import jihong.Suttda_main;
+import jihong.abc;
 import taehwan.ExButton;
 import taehwan.Mainbar;
 
@@ -198,6 +200,16 @@ public class Main_GUI extends JFrame{
 		btn3.setFont(new Font("∏º¿∫∞ÌµÒ", Font.BOLD, 20));
 		btn3.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btn3.setPreferredSize(new Dimension( 180 , 70 ));
+		btn3.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Object obj = e.getSource();
+				if((JButton)obj==btn3) {
+					new abc();
+					setVisible(false);
+				}
+			}
+		});
 		panel5.add(btn3);
 		
 		JButton btn4 = new JButton(" «‡∏«∞‘¿” ",img5);
