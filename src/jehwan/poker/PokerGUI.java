@@ -235,7 +235,6 @@ public class PokerGUI  extends JFrame{
 		
 		JButton lbl9 = new JButton(img2);
 		lbl9.setBounds(221, 540, 156, 223);
-		lbl9.setToolTipText("더블클릭 하세요~");
 		this.add(lbl9);
 		lbl9.addActionListener(new ActionListener() {
 			@Override
@@ -244,12 +243,13 @@ public class PokerGUI  extends JFrame{
 				JButton lbl91 = new JButton(new ImageIcon("image/poker/"+ playerCards.get(1).getSuit()+"-"+ playerCards.get(1).getRank() + ".png"));
 				lbl91.setBounds(221, 540, 156, 223);
 				frame.add(lbl91);
+				revalidate();
+				repaint();
 			}
 		});
 		
 		JButton lbl10 = new JButton(img2);
 		lbl10.setBounds(412, 540, 156, 223);
-		lbl10.setToolTipText("더블클릭 하세요~");
 		this.add(lbl10);
 		lbl10.addActionListener(new ActionListener() {
 			@Override
@@ -258,12 +258,13 @@ public class PokerGUI  extends JFrame{
 				JButton lbl101 = new JButton(new ImageIcon("image/poker/"+ playerCards.get(2).getSuit()+"-"+ playerCards.get(2).getRank() + ".png"));
 				lbl101.setBounds(412, 540, 156, 223);
 				frame.add(lbl101);
+				revalidate();
+				repaint();
 			}
 		});
 		
 		JButton lbl11 = new JButton(img2);
 		lbl11.setBounds(603, 540, 156, 223);
-		lbl11.setToolTipText("더블클릭 하세요~");
 		this.add(lbl11);
 		lbl11.addActionListener(new ActionListener() {
 			@Override
@@ -272,12 +273,13 @@ public class PokerGUI  extends JFrame{
 				JButton lbl111 = new JButton(new ImageIcon("image/poker/"+ playerCards.get(3).getSuit()+"-"+ playerCards.get(3).getRank() + ".png"));
 				lbl111.setBounds(603, 540, 156, 223);
 				frame.add(lbl111);
+				revalidate();
+				repaint();
 			}
 		});
 		
 		JButton lbl12 = new JButton(img2);
 		lbl12.setBounds(794, 540, 156, 223);
-		lbl12.setToolTipText("더블클릭 하세요~");
 		this.add(lbl12);
 		lbl12.addActionListener(new ActionListener() {
 			@Override
@@ -286,6 +288,8 @@ public class PokerGUI  extends JFrame{
 				JButton lbl121 = new JButton(new ImageIcon("image/poker/"+ playerCards.get(4).getSuit()+"-"+ playerCards.get(4).getRank() + ".png"));
 				lbl121.setBounds(794, 540, 156, 223);
 				frame.add(lbl121);
+				revalidate();
+				repaint();
 			}
 		});
 	
