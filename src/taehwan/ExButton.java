@@ -69,7 +69,7 @@ public class ExButton extends JFrame implements Runnable {
 	/*************************************************************************/
 	public ExButton() {
 		if (score == 0) {
-			score = 100;
+			score = 50;
 			th = new Thread(this);
 			th.start();
 		}
@@ -160,7 +160,7 @@ public class ExButton extends JFrame implements Runnable {
 		while (score > 0) {
 			if (score > stbar2) {
 				stbar2 = score;
-				score = 100;
+				score = 50;
 
 			}
 			score -= 1; // + quizAA;
@@ -171,7 +171,7 @@ public class ExButton extends JFrame implements Runnable {
 						SUBM();
 					}
 				} else if (youfald != 1) {
-					Thread.sleep(500);
+					Thread.sleep(1000);
 					System.out.println("생명력 : " + score + "/" + stbar2 + " 남음" + stbar);
 					// statusLabel.setText("생명력 : " + score / 2); // 점수를 갱신
 					Pausequiz.setText("정답 : " + quizAA); // 점수를 갱신
@@ -317,7 +317,7 @@ public class ExButton extends JFrame implements Runnable {
 		if (To != 9) { // 문제가 다른 숫자가 나왔다.
 			if (Answer != To) { // 틀린 값을 입력했는지 확인..
 				quizAA += 1;
-				score = 100; // 0 + To + quizAA; // 답과 문제가 틀리면 가산.
+				// score = 50; // 0 + To + quizAA; // 답과 문제가 틀리면 가산.
 				System.out.println("0 정답\t" + " 문제 : " + To + ",\t 선택 : " + Answer + "\n"); // 디버깅
 				mfdispose();
 			} else if (Answer == To) {// 게임오버 시 다음문제가 출력되지 않게합니다.
@@ -327,7 +327,7 @@ public class ExButton extends JFrame implements Runnable {
 			}
 		} else if (To == 9) { // 문제가 9가 나왔다.
 			if (Answer == To) { // 9를 입력했는지 확인.
-				score = 100; // + To + quizAA; // 답과 문제가 같으면 가산.
+				// score = 50; // + To + quizAA; // 답과 문제가 같으면 가산.
 				quizAA += 1;
 				System.out.println("9 정답\t" + " 문제 : " + To + ",\t 선택 : " + Answer + "\n"); // 디버깅
 				mfdispose();

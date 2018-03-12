@@ -22,6 +22,7 @@ import DB.DBQuery;
 import jehwan.poker.PokerMain;
 import jihong.Suttda_main;
 import jihong.abc;
+import sanghee.hangmanMain;
 import taehwan.ExButton;
 import taehwan.Mainbar;
 
@@ -216,6 +217,16 @@ public class Main_GUI extends JFrame{
 		btn4.setFont(new Font("¸¼Àº°íµñ", Font.BOLD, 20));
 		btn4.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btn4.setPreferredSize(new Dimension( 180 , 70 ));
+		btn4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Object obj = e.getSource();
+				if((JButton)obj==btn4) {
+					hangmanMain.run();
+					setVisible(false);
+				}
+			}
+		});
 		panel5.add(btn4);
 		
 		//--------------------------------------------------------------			

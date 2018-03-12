@@ -102,13 +102,33 @@ public class hangmanGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Object obj = e.getSource();
 				if((JButton)obj==btn) {
-/*					checkChar(readChar());
+				String str = tf.getText();
+					Hangman.checkChar(str.charAt(0));
+					
 					hangmanGUI.this.remove(lbl3);
 					JLabel lbl3 = new JLabel(img2);
 					lbl3.setBounds(210, 150, 163, 211);		
 					hangmanGUI.this.add(lbl3);
+					
+					remove(lbl4);
+					JLabel lbl4 = new JLabel("문자를 입력하세요(남은 기회 " + (6-Hangman.failed) +") : ");
+					lbl4.setFont(new Font(null, Font.BOLD, 15));
+					lbl4.setBounds(100, 450, 300, 25);		
+					hangmanGUI.this.add(lbl4);
+					
+					remove(lbl2);
+					JLabel lbl2 = new JLabel(""+outputString);
+					lbl2.setFont(new Font(null, Font.BOLD, 25));
+					lbl2.setBounds(300, 50, 200, 25);		
+					hangmanGUI.this.add(lbl2);
+					
+					System.out.println("@@@@@@@@ outputString : " + Hangman.outputString);
+					System.out.println("@@@@@@@@ inputString : " + Hangman.inputString);
+					System.out.println("@@@@@@@@ remaninder : " + Hangman.remaninder);
+					System.out.println("@@@@@@@@ failed : " + Hangman.failed);
+					tf.setText("");
+					revalidate();
 					repaint();
-					revalidate();*/
 				}
 			}
 		});
