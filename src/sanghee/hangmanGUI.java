@@ -87,8 +87,8 @@ public class hangmanGUI extends JFrame {
 					System.out.println("@@@@@@@@ remaninder : " + Hangman.remaninder);
 					System.out.println("@@@@@@@@ failed : " + Hangman.failed);
 					tf.setText("");
+					revalidate();
 					repaint();
-					validate();
 				}
 				/////////// 눌린키가 엔터라면 텍스트 필드의 내용을 텍스트영역에 추가. 줄바꿈. 텍스트필드 지움.
 			}
