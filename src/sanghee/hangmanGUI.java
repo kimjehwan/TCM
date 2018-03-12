@@ -70,11 +70,17 @@ public class hangmanGUI extends JFrame {
 					lbl3.setBounds(210, 150, 163, 211);		
 					hangmanGUI.this.add(lbl3);
 					
-					hangmanGUI.this.remove(lbl4);
+					remove(lbl4);
 					JLabel lbl4 = new JLabel("문자를 입력하세요(남은 기회 " + (6-Hangman.failed) +") : ");
 					lbl4.setFont(new Font(null, Font.BOLD, 15));
 					lbl4.setBounds(100, 450, 300, 25);		
 					hangmanGUI.this.add(lbl4);
+					
+					remove(lbl2);
+					JLabel lbl2 = new JLabel(""+outputString);
+					lbl2.setFont(new Font(null, Font.BOLD, 25));
+					lbl2.setBounds(300, 50, 200, 25);		
+					hangmanGUI.this.add(lbl2);
 					
 					System.out.println("@@@@@@@@ outputString : " + Hangman.outputString);
 					System.out.println("@@@@@@@@ inputString : " + Hangman.inputString);
@@ -82,7 +88,7 @@ public class hangmanGUI extends JFrame {
 					System.out.println("@@@@@@@@ failed : " + Hangman.failed);
 					tf.setText("");
 					repaint();
-					revalidate();
+					validate();
 				}
 				/////////// 눌린키가 엔터라면 텍스트 필드의 내용을 텍스트영역에 추가. 줄바꿈. 텍스트필드 지움.
 			}
