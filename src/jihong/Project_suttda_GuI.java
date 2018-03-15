@@ -118,7 +118,7 @@ public class Project_suttda_GuI extends JFrame{
 					System.out.println("창 뜨기");
 					if(abc.result == 1) {
 						String[] buttonName = {"네", "아니오"};						
-						int flag = JOptionPane.showConfirmDialog(null, "비겼습니다 \n 다시하시겠습니까?", "결과", JOptionPane.YES_NO_OPTION);
+						int flag = JOptionPane.showConfirmDialog(null, "이겼습니다 \n 다시하시겠습니까?", "결과", JOptionPane.YES_NO_OPTION);
 							if(flag == JOptionPane.YES_OPTION) {
 								dispose();
 								new abc();
@@ -147,7 +147,7 @@ public class Project_suttda_GuI extends JFrame{
 							
 					}else if(abc.result == 3) {
 						String[] buttonName = {"네", "아니오"};						
-						int flag = JOptionPane.showConfirmDialog(null, "비겼습니다 \n 다시하시겠습니까?", "결과", JOptionPane.YES_NO_OPTION);
+						int flag = JOptionPane.showConfirmDialog(null, "졌습니다 \n 다시하시겠습니까?", "결과", JOptionPane.YES_NO_OPTION);
 							if(flag == JOptionPane.YES_OPTION) {
 								dispose();
 								new abc();

@@ -66,7 +66,7 @@ public class SUB extends Frame implements ActionListener {
 			open.setBackground(new Color(255, 255, 0)); // 중간점수 노란색 배경 설정
 		} // 배경설정 끝
 
-		if (ExButton.quizAA > 60) { // 501 점 이상는 이것으로 처리.
+		if (ExButton.quizAA > 40) { // 501 점 이상는 이것으로 처리.
 			open.setBackground(new Color(50, 255, 0)); // 높은점수 초록색 배경 설정
 		} // 배경설정 끝
 		add(open); // 버튼 추가하기.

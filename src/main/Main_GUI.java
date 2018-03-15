@@ -27,68 +27,82 @@ import taehwan.ExButton;
 import taehwan.Mainbar;
 
 public class Main_GUI extends JFrame{
-	public static JFrame frame;
+	public static JFrame frame; //프레임 전역변수 생성
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	public Main_GUI(){
+		//지금 프레임을 전역변수로 지정한 변수에 지정
 		frame = this;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("TCM");
 		
 		//이 부분에 버튼, 레이블, 체크박스 등을 코딩함
 		//--------------------------------------------------------------
+		//레이아웃 없음
 		this.setLayout(null);
 		
+		//이미지 아이콘 변수생성 및 대입
 		ImageIcon img1 = new ImageIcon("image/casino.jpg");
 		ImageIcon img2 = new ImageIcon("image/poker.png");
 		ImageIcon img3 = new ImageIcon("image/gostop.png");
 		ImageIcon img4 = new ImageIcon("image/blackjack.png");
 		ImageIcon img5 = new ImageIcon("image/slot.jpg");
 
+		//패널 생성
 		JPanel panel1 = new JPanel();
 		JPanel panel2 = new JPanel();
 		JPanel panel3 = new JPanel();
 		JPanel panel4 = new JPanel();
 		JPanel panel5 = new JPanel();
 		
+		//메인 이미지를 라벨에 지정하고 라벨을 프레임에 삽입.
 		JLabel lbl1 = new JLabel( img1);
 		lbl1.setBounds(10, 10, 420, 190);
 		this.add(lbl1);
 		
+		//아이디를 적는 텍스트 필드 지정
 		JTextField jtf = new JTextField();
 		jtf.setPreferredSize(new Dimension(250, 30));
 		panel1.add(new JLabel("I    D  : "));
 		panel1.add(jtf);
 		
+		//비밀번호를 적는 패스워드 필드 지정
 		JPasswordField jpf = new JPasswordField();
 		jpf.setPreferredSize(new Dimension(250, 30));
 		panel2.add(new JLabel("P  W : "));
 		panel2.add(jpf);
 
-		
+		//로그인 버튼
 		JButton signIn = new JButton("로 그 인");
 		signIn.setPreferredSize(new Dimension(100, 30));
 		signIn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Object obj = e.getSource();
+				//눌려진 버튼이 로그인 버튼이라면
 				if((JButton)obj==signIn) {
+					// 새로운 서브프레임 생성
 					final Frame fs = new Frame("로그인");
 					fs.setVisible(true);
 					
+					//db에서 데이터 체크
 					DBQuery query = new DBQuery();
 					boolean check = query.logIn(new String(jtf.getText()), new String(jpf.getPassword()), false);
 					
 					if(check) {
+						//서브 프레임에 결과출력
 						fs.add(new JLabel("로그인 성공"));
+						//메인창의 로그인 패널 안보이게 함
 						panel4.setVisible(false);
+						//메인창에 로그인 정보를 출력
 						JPanel panel4_1 = new JPanel();
 						JLabel logInLbl = new JLabel(Player.getId()+"님, ");
 						JLabel logInLb2 = new JLabel("반갑습니다.");
 						panel4_1.add(logInLbl);
-						panel4_1.add(logInLb2);	
+						panel4_1.add(logInLb2);
+						
 						logInLbl.setFont(new Font("맑은고딕", Font.BOLD, 30));
 						logInLb2.setFont(new Font("맑은고딕", Font.BOLD, 30));
 						panel4_1.setBounds(10, 210, 420, 150);
