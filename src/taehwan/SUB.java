@@ -19,6 +19,7 @@ public class SUB extends Frame implements ActionListener {
 	Button open; // 버튼을 위한 변수입니다.
 	Dimension dm; // 치수인데 가로와 세로 값을 저장하는 용도입니다. 프레임 크기요.
 	Label rank;
+	Label gameover;
 
 	// 게임오버 화면 출력.
 	public static void RANA() {
@@ -68,7 +69,12 @@ public class SUB extends Frame implements ActionListener {
 
 		if (ExButton.quizAA > 40) { // 501 점 이상는 이것으로 처리.
 			open.setBackground(new Color(50, 255, 0)); // 높은점수 초록색 배경 설정
-		} // 배경설정 끝
+		} // 배경설정 끝		
+		gameover = new Label();
+				gameover.setText("게임이 끝났습니다.");
+				gameover.setBounds(25,50,500,100);
+				gameover.setFont(new Font("",Font.BOLD,50));
+				add(gameover); // 게임오버 메세지
 		add(open); // 버튼 추가하기.
 		// 여기까지 버튼 외형
 		open.setSize(500, 200); // 버튼 사이즈 만들기.
