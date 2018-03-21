@@ -14,7 +14,7 @@ public class Hangman {
 	}
 
 	public int playGame() {
-		
+	
 		outputString = new StringBuffer();
 
 		for (int i = 0; i < hiddenString.length(); i++) { // hiddenString의 문자 수만큼 '-'출력
@@ -28,12 +28,13 @@ public class Hangman {
 
 		System.out.println("\n단어(" + hiddenString.length() + "글자" + "): " + outputString);
 		drawMan(); // 교수대 그리기
-		new hangmanGUI(outputString);
+		//gui.gui();
 
 		do {
 			checkChar(readChar()); // 한 문자를 입력받아서 정답인지 확인
 			System.out.println("\n단어(" + hiddenString.length() + "글자" + "): " + outputString);
 			drawMan(); // 입력문자에 따른 교수대 출력
+
 		} while ((remaninder > 0) && (failed < 6)); // 문제를 완전히 맞추거나 6번이상 틀릴때까지 반복
 
 		
