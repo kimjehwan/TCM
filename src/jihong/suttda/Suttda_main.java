@@ -1,11 +1,12 @@
-package jihong;
+package jihong.suttda;
 
 public class Suttda_main {
 	
 
 	public static void main(String[] args) {
-		new abc();
+		Suttda suttda = new Suttda();
 		
+		suttda.play();
 
 	}	
 }

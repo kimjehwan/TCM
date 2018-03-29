@@ -28,18 +28,17 @@ public class PokerGUI  extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int comScore = 1000;
-	private int radioScore;
+	private int comScore = 1000;	//컴퓨터 점수 1000점으로 초기화
+	private int radioScore;	//베팅점수를 담을 객체
 	
 	public PokerGUI(ArrayList<Card> playerCards, ArrayList<Card> comCards,String winnerDeck, String winner, int winnerCheck) {
 		JFrame frame = this;
-		frame.addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent windowEvent) {
-				DBQuery.savePoker();
+		frame.addWindowListener(new WindowAdapter() {	
+			public void windowClosing(WindowEvent windowEvent) {	//우측 상단의 X버튼을 누르면
+				DBQuery.savePoker();//포커 점수를 DB에 저장
 				frame.setVisible(false);	//서브 프레임이므로 X클릭 시, 보이지 않게 하고
 				frame.dispose();// 자원을 회수
-				Main_GUI.frame.setVisible(true);
-				//new  Main_GUI();
+				Main_GUI.frame.setVisible(true);	//숨겨 뒀던 메인프레임을 다시 보여준다
 			}
 		});
 
@@ -50,50 +49,55 @@ public class PokerGUI  extends JFrame{
 		this.setLayout(null);
 		this.getContentPane().setBackground(new Color(27, 133, 43));
 		
-		ImageIcon img1 = new ImageIcon("image/center.png");
-		ImageIcon img2 = new ImageIcon("image/back.png");
+		ImageIcon img1 = new ImageIcon("image/center.png");	//포커판 중앙의 이미지를 담을 변수 생성
+		ImageIcon img2 = new ImageIcon("image/back.png");		//포커패 뒷면의 이미지를 담을 변수 생성
 		
-		JLabel lbl1 = new JLabel(img2);
+		JLabel lbl1 = new JLabel(img2); //컴퓨터 카드 1이 위치할 레이블 변수
 		lbl1.setBounds(30, 20, 156, 223);
 		this.add(lbl1);	
+		//결과 보기 시, 컴퓨터 카드 1이 위치할 레이블 변수
 		JLabel lbl1_1 = new JLabel(new ImageIcon("image/poker/"+ comCards.get(0).getSuit()+"-"+ comCards.get(0).getRank() + ".png"));
 		lbl1_1.setBounds(30, 20, 156, 223);
-		lbl1_1.setVisible(false);
+		lbl1_1.setVisible(false);		//결과보기시 true로 변경
 		this.add(lbl1_1);
 		
-		JLabel lbl2 = new JLabel(img2);
+		JLabel lbl2 = new JLabel(img2); //컴퓨터 카드 2가 위치할 레이블 변수
 		lbl2.setBounds(221, 20, 156, 223);
 		this.add(lbl2);
+		//결과 보기 시, 컴퓨터 카드 2가 위치할 레이블 변수
 		JLabel lbl2_1 = new JLabel(new ImageIcon("image/poker/"+ comCards.get(1).getSuit()+"-"+ comCards.get(1).getRank() + ".png"));
 		lbl2_1.setBounds(221, 20, 156, 223);
-		lbl2_1.setVisible(false);
+		lbl2_1.setVisible(false);		//결과보기시 true로 변경
 		this.add(lbl2_1);
 		
-		JLabel lbl3 = new JLabel(img2);
+		JLabel lbl3 = new JLabel(img2); //컴퓨터 카드 3이 위치할 레이블 변수
 		lbl3.setBounds(412, 20, 156, 223);
 		this.add(lbl3);
+		//결과 보기 시, 컴퓨터 카드 3이 위치할 레이블 변수
 		JLabel lbl3_1 = new JLabel(new ImageIcon("image/poker/"+ comCards.get(2).getSuit()+"-"+ comCards.get(2).getRank() + ".png"));
 		lbl3_1.setBounds(412, 20, 156, 223);
-		lbl3_1.setVisible(false);
+		lbl3_1.setVisible(false);		//결과보기시 true로 변경
 		this.add(lbl3_1);
 		
-		JLabel lbl4 = new JLabel(img2);
+		JLabel lbl4 = new JLabel(img2); //컴퓨터 카드 4가 위치할 레이블 변수
 		lbl4.setBounds(603, 20, 156, 223);
 		this.add(lbl4);
+		//결과 보기 시, 컴퓨터 카드 4가 위치할 레이블 변수
 		JLabel lbl4_1 = new JLabel(new ImageIcon("image/poker/"+ comCards.get(3).getSuit()+"-"+ comCards.get(3).getRank() + ".png"));
 		lbl4_1.setBounds(603, 20, 156, 223);
-		lbl4_1.setVisible(false);
+		lbl4_1.setVisible(false);	//결과보기시 true로 변경
 		this.add(lbl4_1);
 		
-		JLabel lbl5 = new JLabel(img2);
+		JLabel lbl5 = new JLabel(img2); //컴퓨터 카드 5가 위치할 레이블 변수
 		lbl5.setBounds(794, 20, 156, 223);
 		this.add(lbl5);
+		//결과 보기 시, 컴퓨터 카드 5가 위치할 레이블 변수
 		JLabel lbl5_1 = new JLabel(new ImageIcon("image/poker/"+ comCards.get(4).getSuit()+"-"+ comCards.get(4).getRank() + ".png"));
 		lbl5_1.setBounds(794, 20, 156, 223);
-		lbl5_1.setVisible(false);
+		lbl5_1.setVisible(false);	//결과보기시 true로 변경
 		this.add(lbl5_1);
 				
-		JPanel cProfile = new JPanel();
+		JPanel cProfile = new JPanel();	//컴퓨터 프로필이 위치 할 판넬 변수
 		cProfile.setBorder(new LineBorder(Color.red, 5));
 		cProfile.setBounds(30, 270, 200, 100);
 		this.add(cProfile);
@@ -107,7 +111,7 @@ public class PokerGUI  extends JFrame{
 		cProfile.add(cName);
 		cProfile.add(cScore);
 		
-		JPanel pProfile = new JPanel();
+		JPanel pProfile = new JPanel();	//플레이어 프로필이 위치 할 판넬 변수
 		pProfile.setBorder(new LineBorder(Color.red, 5));
 		pProfile.setBounds(30, 420, 200, 100);
 		this.add(pProfile);
@@ -121,7 +125,7 @@ public class PokerGUI  extends JFrame{
 		pProfile.add(pName);
 		pProfile.add(pScore);
 		
-		JPanel center = new JPanel();
+		JPanel center = new JPanel();	//승자 정보를 표시할 판넬
 		center.setOpaque(false);
 		center.setBounds(260, 270, 500, 250);
 		this.add(center);
@@ -140,7 +144,7 @@ public class PokerGUI  extends JFrame{
 		center.add(lbl6_1);
 		center.add(lbl6_2);
 		
-		JPanel pn2 = new JPanel();
+		JPanel pn2 = new JPanel();	// 베팅점수와 결과확인 & 다시하기 버튼이 들어갈 판넬 변수
 		pn2.setOpaque(false);
 		pn2.setBounds(800, 270, 150, 250);
 		this.add(pn2);
@@ -177,7 +181,8 @@ public class PokerGUI  extends JFrame{
 					if((JButton)obj==btn1) {
 						setVisible(false);
 						dispose();
-						PokerMain.run();
+						PokerMain.run();	
+						//다시 하기를 누르면, 기존게임의 자원을 회수하고 새로운 포커게임이 시작된다.
 					}
 				}
 			});
@@ -190,7 +195,7 @@ public class PokerGUI  extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				Object obj = e.getSource();
 				if((JButton)obj==btn) {
-					
+					///////////////////////////
 					lbl6.setVisible(false);lbl6_1.setVisible(true);lbl6_2.setVisible(true);
 					
 					lbl1.setVisible(false);lbl1_1.setVisible(true);
@@ -199,7 +204,7 @@ public class PokerGUI  extends JFrame{
 					lbl4.setVisible(false);lbl4_1.setVisible(true);
 					lbl5.setVisible(false);lbl5_1.setVisible(true);
 					btn.setVisible(false);btn1.setVisible(true);
-					
+					///////////////////////////결과 확인을 누르면 중앙 이미지와 상대 패의 이미지가 바뀐다.					
 					if(rdo1.isSelected()) {
 						radioScore = 10;
 					}else if(rdo2.isSelected()) {
@@ -227,12 +232,12 @@ public class PokerGUI  extends JFrame{
 		});
 		pn2.add(btn);
 		
-		
+		//플레이어 카드 1은 앞면을 보여준다.
 		JButton lbl8 = new JButton(new ImageIcon("image/poker/"+ playerCards.get(0).getSuit()+"-"+ playerCards.get(0).getRank() + ".png"));
 		lbl8.setBounds(30, 540, 156, 223);
 		this.add(lbl8);	
 	
-		
+		//플레이어 카드2는 뒷면이었다가 클릭 시 앞면이 나타난다.
 		JButton lbl9 = new JButton(img2);
 		lbl9.setBounds(221, 540, 156, 223);
 		this.add(lbl9);
@@ -248,6 +253,7 @@ public class PokerGUI  extends JFrame{
 			}
 		});
 		
+		//플레이어 카드3은 뒷면이었다가 클릭 시 앞면이 나타난다.
 		JButton lbl10 = new JButton(img2);
 		lbl10.setBounds(412, 540, 156, 223);
 		this.add(lbl10);
@@ -263,6 +269,7 @@ public class PokerGUI  extends JFrame{
 			}
 		});
 		
+		//플레이어 카드4는 뒷면이었다가 클릭 시 앞면이 나타난다.
 		JButton lbl11 = new JButton(img2);
 		lbl11.setBounds(603, 540, 156, 223);
 		this.add(lbl11);
@@ -278,6 +285,7 @@ public class PokerGUI  extends JFrame{
 			}
 		});
 		
+		//플레이어 카드5는 뒷면이었다가 클릭 시 앞면이 나타난다.
 		JButton lbl12 = new JButton(img2);
 		lbl12.setBounds(794, 540, 156, 223);
 		this.add(lbl12);

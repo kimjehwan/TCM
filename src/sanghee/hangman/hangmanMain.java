@@ -1,4 +1,4 @@
-package sanghee;
+package sanghee.hangman;
 
 public class hangmanMain {
 
@@ -8,7 +8,7 @@ public class hangmanMain {
 
 	public static void run(){
 		 Hangman hangman = new Hangman();
-	        
+	        System.out.println("행맨매인");
 	        int result = hangman.playGame(); //게임을 실행 
 	        
 	         System.out.println();

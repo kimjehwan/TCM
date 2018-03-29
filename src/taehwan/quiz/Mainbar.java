@@ -1,4 +1,4 @@
-package taehwan;
+package taehwan.quiz;
 
 import java.awt.Color;
 import java.awt.Cursor;

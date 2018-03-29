@@ -53,10 +53,10 @@ public class Calculation {
 			}
 		}
 		if (count == 3 && check == 1 && fourCard_check == true) {
-			//System.out.println("4장 짜리 숫자 : " + num + ", 포카드");
+			//count가 3이면서, check가 1이고, 포카드 체크가 true라면 포카드이다.
 			return new Rank(2, num,"포카드, "+ num);
 		} else if (count == 3 && check == 1 && fourCard_check == false) {
-			//System.out.println("3장 짜리 숫자 : " + num + ", 풀하우스");
+			//count가 3이면서, check가 1이고, 포카드 체크가 false라면 풀하우스이다.
 			return new Rank(1, num,"풀하우스, "+ num);
 		} else {
 			return new Rank(0, 0, null);
@@ -66,6 +66,7 @@ public class Calculation {
 	private Rank isStraightFlush(ArrayList<Card> cardDeck) {
 
 		int[] Cards = new int[5];
+		//스트레이트인지 플러시인지 확인 한 결과값을 담는 변수
 		int straight = 0, flush = 0, i = 0;
 
 		Iterator<Card> it = cardDeck.iterator();
@@ -88,13 +89,13 @@ public class Calculation {
 		}
 
 		if (straight == 3 && flush == 1) {
-			//System.out.println("무늬 : " + Card.suitToString(cardDeck.get(0).getSuit()) + ", 로얄 스트레이트 플러시");
+			//straight값이 3이고, flush값이 1이라면 로얄 스트레이트 플러시이다.
 			return new Rank(3, (cardDeck.get(0).getSuit()) * -1,"로얄 스트레이트 플러시, " + Card.suitToString(cardDeck.get(0).getSuit()));
 		} else if (straight == 2 && flush == 1) {
-			//System.out.println("무늬 : " + Card.suitToString(cardDeck.get(0).getSuit()) + ", 백 스트레이트 플러시");
+			//straight값이 2이고, flush값이 1이라면 백 스트레이트 플러시이다.
 			return new Rank(2, (cardDeck.get(0).getSuit()) * -1,"백 스트레이트 플러시, " + Card.suitToString(cardDeck.get(0).getSuit()));
 		} else if (straight == 1 && flush == 1) {
-			//System.out.println("제일높은숫자 : " + Card.rankToString(Cards[4]) + "스트레이트 플러시");
+			//straight값이 1이고, flush값이 1이라면 스트레이트 플러시이다.
 			return new Rank(1, Cards[4],"스트레이트 플러시, " + Card.rankToString(Cards[4]));
 		} else {
 			return new Rank(0, 0, null);
@@ -140,21 +141,22 @@ public class Calculation {
 			}
 		}
 		if (count == 0 && check == 4) {
-			//System.out.println("제일 높은 숫자는 : " + Card.rankToString(Straight[4]) + ", 하이카드");
+			//count가 0이고, check가 4라면 하이카드 이다.
 			return new Rank(1, Straight[4],"하이카드, " + Card.rankToString(Straight[4]));
 		} else if (count == 1 && check == 3) {
-			//System.out.println("원페어 숫자는 : " + Card.rankToString(sameCard1) + ", 원페어");
+			//count가 1이고, check가 3이라면 원페어 이다.
 			return new Rank(2, sameCard1,"원페어, " + Card.rankToString(sameCard1));
 		} else if (count == 2 && check == 2 && continue_check == false) {
+			//count가 2이고, check가 2라면 투페어 이다.
+			////////////////////////////////////
 			if (sameCard1 > sameCard2) {
-				//System.out.println("투페어 숫자는 : " + Card.rankToString(sameCard1) + ", 투페어");
 				return new Rank(3, sameCard1,"투페어, " +Card.rankToString(sameCard1));
 			} else {
-				//System.out.println("투페어 숫자는 : " + Card.rankToString(sameCard2) + ", 투페어");
 				return new Rank(3, sameCard2,"투페어, " +Card.rankToString(sameCard2));
 			}
+			////////////////////////////////////투페어 중 높은 숫자를 저장
 		} else if (count == 2 && check == 2 && continue_check == true) {
-			//System.out.println("트리플 숫자는 : " + Card.rankToString(sameCard2) + ", 트리플");
+			//count가 2이고, check가 2인데 컨티뉴체크가 true라면 트리플 이다.
 			return new Rank(4, sameCard2,"트리플, " +Card.rankToString(sameCard2));
 		} else {
 			return new Rank(0, 0, null);
@@ -175,16 +177,13 @@ public class Calculation {
 
 		// 마운틴 or 로얄 스트레이트 플러스
 		if (Straight[0] == 0 && Straight[1] == 9 && Straight[2] == 10 && Straight[3] == 11 && Straight[4] == 12) {
-			//System.out.println("마운틴");
 			return new Rank(3, 0,"마운틴");
-			// 백스트레이트플러시 or 백스트레이트
+		// 백스트레이트플러시 or 백스트레이트
 		} else if (Straight[0] == 0 && Straight[1] == 1 && Straight[2] == 2 && Straight[3] == 3 && Straight[4] == 4) {
-			//System.out.println("백스트레이트");
 			return new Rank(2, 0,"백스트레이트");
-			// 스트레이트플러시 or 스트레이트
+		// 스트레이트플러시 or 스트레이트
 		} else if (Straight[0] == (Straight[1] - 1) && Straight[0] == (Straight[2] - 2)
 				&& Straight[0] == (Straight[3] - 3) && Straight[0] == (Straight[4] - 4)) {
-			//System.out.println("제일 높은 숫자 : " + Card.rankToString(Straight[4]) + ", 스트레이트");
 			return new Rank(1, Straight[4],"스트레이트"+ Card.rankToString(Straight[4]));
 		} else {
 			return new Rank(0, 0, null);
@@ -218,7 +217,7 @@ public class Calculation {
 		Arrays.sort(Ranks);
 
 		if (spade == 5 || clover == 5 || heart == 5 || diamond == 5) {
-			//System.out.println("제일 높은 숫자는 : " + Card.rankToString(Ranks[4]) + ", 플러시");
+			//4개의 문양 중 1개라도 5개가 같다면 플러시
 			return new Rank(1, Ranks[4],"플러시, "+ Card.rankToString(Ranks[4]));
 		} else {
 			return new Rank(0, 0,null);

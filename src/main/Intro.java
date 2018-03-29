@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 import DB.DBQuery;
 import jehwan.poker.PokerMain;
-import jihong.Suttda_main;
-import sanghee.hangmanMain;
+import jihong.suttda.Suttda_main;
+import sanghee.hangman.hangmanMain;
 
 public class Intro {
 	

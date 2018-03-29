@@ -20,11 +20,9 @@ import javax.swing.JTextField;
 
 import DB.DBQuery;
 import jehwan.poker.PokerMain;
-import jihong.Suttda_main;
-import jihong.abc;
-import sanghee.hangmanMain;
-import taehwan.ExButton;
-import taehwan.Mainbar;
+import jihong.suttda.Suttda;
+import sanghee.hangman.hangmanMain;
+import taehwan.quiz.Mainbar;
 
 public class Main_GUI extends JFrame{
 	public static JFrame frame; //프레임 전역변수 생성
@@ -220,7 +218,7 @@ public class Main_GUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				Object obj = e.getSource();
 				if((JButton)obj==btn3) {
-					new abc();
+					Suttda.play();
 					setVisible(false);
 				}
 			}

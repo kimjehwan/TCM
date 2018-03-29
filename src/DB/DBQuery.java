@@ -80,6 +80,7 @@ public class DBQuery
             String quary2 = "SELECT * FROM TCM_USER";
 
             conn = DBConnection.getConnection();
+            //select쿼리를 먼저 실행 후
             pstm = conn.prepareStatement(quary2);
             rs = pstm.executeQuery();
             
@@ -92,10 +93,10 @@ public class DBQuery
 					check=false;
 					break;
 				}
-           // System.out.println("회원가입 성공");
             }
             if(check) {
             	System.out.println("회원가입 성공");
+            	//일치하는  ID가 없다면 insert 쿼리문을 실행하여 데이터를 삽입
             	conn.prepareStatement(quary1).executeQuery();   
             	check=true;
             }else {
@@ -124,8 +125,7 @@ public class DBQuery
         ResultSet rs = null;  // 쿼리문을 날린것에 대한 반환값을 담을 객체
         
         try {
-            // SQL 문장을 만들고 만약 문장이 질의어(SELECT문)라면
-            // 그 결과를 담을 ResulSet 객체를 준비한 후 실행시킨다.
+            //포커 점수를 업데이트 하는 쿼리
             String quary1 = "UPDATE TCM_USER SET PSCORE = " + Player.getpScore() + " WHERE ID = '" + Player.getId() + "'";
 
             conn = DBConnection.getConnection();

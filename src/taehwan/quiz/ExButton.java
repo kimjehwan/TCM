@@ -1,4 +1,4 @@
-package taehwan;
+package taehwan.quiz;
 
 import java.awt.Button;
 import java.awt.Color;

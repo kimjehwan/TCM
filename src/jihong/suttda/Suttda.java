@@ -1,8 +1,8 @@
-package jihong;
+package jihong.suttda;
 
 import java.util.Scanner;
 
-public class abc {
+public class Suttda {
 	
 	static int card[] = new int[20];
 	static int userCard[] = new int[2];
@@ -13,7 +13,8 @@ public class abc {
 	static String again;
 	static int result;
 	
-	public abc() {
+	
+	public static void play() {
 		Scanner scanner = new Scanner(System.in);
 
 			// 카드 섞기
@@ -22,7 +23,6 @@ public class abc {
 			// 카드 분배
 			// 섞인 카드를 유저와 컴퓨터가 2장씩 나눠 가진다.
 			getCard(userCard, comCard, card);
-
 			// 유저 카드, 컴퓨터 카드 출력
 			System.out.println("유저와 컴퓨터가 뽑은 카드");
 			System.out.println("player card: " + userCard[0] + "월, " + userCard[1] + "월");
@@ -36,8 +36,8 @@ public class abc {
 			// 가져온 점수를 비교해서 승패를 나눈다.
 			result = sorceCheck(userScore, comScore);
 
-			Project_suttda_GuI psg = new Project_suttda_GuI();
-			psg.GuI(userCard, comCard);
+			new Suttda_GUI(userCard, comCard);
+			//psg.GuI(userCard, comCard);
 
 	}
 
@@ -45,12 +45,14 @@ public class abc {
 	static int sorceCheck(int player, int com) {
 		if (player > com) {
 			System.out.println("승리했습니다.");
+			Suttda_GUI.sc = Suttda_GUI.sc + Suttda_GUI.radioScore;
 			return 1;
 		} else if (player == com) {
 			System.out.println("비겼습니다.");
 			return 2;
 		} else {
 			System.out.println("패배했습니다.");
+			Suttda_GUI.sc = Suttda_GUI.sc -  Suttda_GUI.radioScore;
 			return 3;
 		}
 	}
@@ -64,12 +66,10 @@ public class abc {
 				;
 			player = 24; // 3,8 광땡
 		} else if (playerCard[0] == 1) {
-			if (playerCard[1] == 8)
-				;
-			{
+			if (playerCard[1] == 8){
 				player = 23; // 1,8광땡
 			}
-			if (playerCard[1] == 3) {
+			else if (playerCard[1] == 3) {
 				player = 22; // 1,3광땡
 			}
 		} else if ((playerCard[0]) == (playerCard[1] % 10)) {
@@ -91,7 +91,7 @@ public class abc {
 				player = 15; // 장사 (4월, 10월)
 			}
 		} else {
-			player = (playerCard[0] + playerCard[1]) % 10;
+			player = (playerCard[0] + playerCard[1]) %10;
 		}
 		return player;
 	}
