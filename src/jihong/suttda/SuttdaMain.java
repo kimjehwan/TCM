@@ -1,6 +1,6 @@
 package jihong.suttda;
 
-public class Suttda_main {
+public class SuttdaMain {
 	
 
 	public static void main(String[] args) {

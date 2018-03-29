@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import DB.DBQuery;
 import jehwan.poker.PokerMain;
-import jihong.suttda.Suttda_main;
+import jihong.suttda.SuttdaMain;
 import sanghee.hangman.hangmanMain;
 
 public class Intro {
@@ -17,13 +17,13 @@ public class Intro {
 		System.out.println("=================================");
 		System.out.println("==★☆★종    합     게    임    센    터★☆★==");
 		System.out.println("=================================");
-		
+		//로그인 화면
 		do {
 		System.out.println("메뉴를 선택하세요 : 1.로그인  2.회원가입  3.종료");
 		System.out.print("선택 : ");
 		
 		choice=sc.nextInt();
-		
+		//선택에 따라 다른 이벤트를 시행한다.
 		switch (choice) {
 		case 1:
 			signIn();
@@ -47,13 +47,13 @@ public class Intro {
 		Scanner sc = new Scanner(System.in);
 		String id, pw;
 		boolean check=false;
-		
+		//로그인창을 보여준다.
 		System.out.println("★☆★로그인★☆★");
 		System.out.print("I D : ");
 		id = sc.nextLine().trim();
 		System.out.print("PW : ");
 		pw = sc.nextLine().trim();
-		
+		//DB에 아이디와 비밀번호를 저장한다.
 		DBQuery query = new DBQuery();
 		check = query.logIn(id, pw, check);
 		
@@ -64,7 +64,7 @@ public class Intro {
 		}
 
 	}
-
+	//선택에 따라서 해당하는 게임으로 넘어가는 메소드
 	private void choiceGame() {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
@@ -74,7 +74,7 @@ public class Intro {
 			System.out.println("게임을 선택하세요 : 1.포커  2.섯다  3.퀴즈  4.행맨  5.취소");
 			System.out.print("선택 : ");
 			choice = sc.nextInt();
-			
+			//선택한 번호에 따라서 게임을 선택가능하도록 설정
 			switch (choice) {
 			case 1:
 				System.out.println("포커게임 진입");
@@ -82,7 +82,7 @@ public class Intro {
 				break;
 			case 2:
 				System.out.println("섯다게임 진입");
-				new Suttda_main();
+				new SuttdaMain();
 				break;
 			case 3:
 				System.out.println("퀴즈게임 진입");
@@ -100,7 +100,7 @@ public class Intro {
 			}
 		}while(choice!=5);
 	}
-
+	//회원가입을 하고 그 결과값을 DB에 저장하도록 하는 메소드 
 	private void signUp() {
 		
 		@SuppressWarnings("resource")
@@ -119,7 +119,7 @@ public class Intro {
 			}else
 				check=true;
 		}while(!check);
-		
+		//아이디의 길이는 1이상 15이하로 한다.
 		do {
 			System.out.print("PW : ");
 			pw = sc.nextLine().trim();
@@ -129,7 +129,7 @@ public class Intro {
 			}else
 				check=true;			
 		}while(!check);
-		
+		//비밀번호의 길이는 1이상 15이하로 한다
 		DBQuery query = new DBQuery();
 		query.signUp(id, pw, check);
 		

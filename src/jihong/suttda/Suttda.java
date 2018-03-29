@@ -36,7 +36,7 @@ public class Suttda {
 			// 가져온 점수를 비교해서 승패를 나눈다.
 			result = sorceCheck(userScore, comScore);
 
-			new Suttda_GUI(userCard, comCard);
+			new SuttdaGUI(userCard, comCard);
 			//psg.GuI(userCard, comCard);
 
 	}
@@ -45,14 +45,14 @@ public class Suttda {
 	static int sorceCheck(int player, int com) {
 		if (player > com) {
 			System.out.println("승리했습니다.");
-			Suttda_GUI.sc = Suttda_GUI.sc + Suttda_GUI.radioScore;
+			SuttdaGUI.sc = SuttdaGUI.sc + SuttdaGUI.radioScore;
 			return 1;
 		} else if (player == com) {
 			System.out.println("비겼습니다.");
 			return 2;
 		} else {
 			System.out.println("패배했습니다.");
-			Suttda_GUI.sc = Suttda_GUI.sc -  Suttda_GUI.radioScore;
+			SuttdaGUI.sc = SuttdaGUI.sc -  SuttdaGUI.radioScore;
 			return 3;
 		}
 	}

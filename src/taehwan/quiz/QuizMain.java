@@ -15,9 +15,9 @@ import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import main.Main_GUI;
+import main.MainGUI;
 
-public class Mainbar {
+public class QuizMain {
 	static Frame LLL;
 	static int sasc = 10; // 점수 저장용.
 
@@ -89,7 +89,7 @@ public class Mainbar {
 			start.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					LLL.setVisible(false);
-					ExButton b = new ExButton(); // 버튼의 기능을 생성
+					QuizPlay b = new QuizPlay(); // 버튼의 기능을 생성
 					b.showButton();
 					b.th.start();
 					b.prepareGUI();
@@ -101,7 +101,7 @@ public class Mainbar {
 				public void actionPerformed(ActionEvent arg0) {
 					//new Main_GUI();
 					LLL.dispose();
-					Main_GUI.frame.setVisible(true);
+					MainGUI.frame.setVisible(true);
 				}
 			});
 			LLL.addMouseListener(new MouseListener() {
@@ -119,7 +119,7 @@ public class Mainbar {
 
 				public void mouseEntered(MouseEvent arg0) {
 					/* 랭크갱신 */
-					SUB.RANA();
+					QuizGameOver.RANA();
 					scropLabel.setText("많이 맞춘 수 " + sasc + " 개"); // 1위 랭크
 					/********/
 				}
@@ -133,7 +133,7 @@ public class Mainbar {
 				public void windowClosing(WindowEvent e) {
 					//new Main_GUI();
 					LLL.dispose();
-					Main_GUI.frame.setVisible(true);
+					MainGUI.frame.setVisible(true);
 				}
 			});
 

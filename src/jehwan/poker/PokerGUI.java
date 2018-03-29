@@ -19,7 +19,7 @@ import javax.swing.JRadioButton;
 import javax.swing.border.LineBorder;
 
 import DB.DBQuery;
-import main.Main_GUI;
+import main.MainGUI;
 import main.Player;
 
 public class PokerGUI  extends JFrame{
@@ -38,7 +38,7 @@ public class PokerGUI  extends JFrame{
 				DBQuery.savePoker();//포커 점수를 DB에 저장
 				frame.setVisible(false);	//서브 프레임이므로 X클릭 시, 보이지 않게 하고
 				frame.dispose();// 자원을 회수
-				Main_GUI.frame.setVisible(true);	//숨겨 뒀던 메인프레임을 다시 보여준다
+				MainGUI.frame.setVisible(true);	//숨겨 뒀던 메인프레임을 다시 보여준다
 			}
 		});
 

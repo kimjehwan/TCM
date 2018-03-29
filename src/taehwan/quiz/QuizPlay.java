@@ -20,10 +20,10 @@ import javax.swing.JFrame;
 import javax.swing.JProgressBar;
 import javax.swing.UIManager;
 
-import main.Main_GUI;
+import main.MainGUI;
 
 /*************************************************************************/
-public class ExButton extends JFrame implements Runnable {
+public class QuizPlay extends JFrame implements Runnable {
 
 	/**
 	 *  
@@ -31,7 +31,7 @@ public class ExButton extends JFrame implements Runnable {
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String args) {
-		ExButton b = new ExButton();
+		QuizPlay b = new QuizPlay();
 		b.showButton();
 		b.prepareGUI();
 		b.dispose();
@@ -67,7 +67,7 @@ public class ExButton extends JFrame implements Runnable {
 	/*********************************************/
 
 	/*************************************************************************/
-	public ExButton() {
+	public QuizPlay() {
 		if (score == 0) {
 			score = 50;
 			th = new Thread(this);
@@ -100,11 +100,11 @@ public class ExButton extends JFrame implements Runnable {
 		mainFrame.setLocationRelativeTo(null); // 실행하면 화면의 가운데로 나오게 합니다.
 		mainFrame.addWindowListener(new WindowAdapter() { // 닫기 버튼을 누르면??
 			public void windowClosing(WindowEvent windowEvent) {
-				ExButton.quizAA = 0; // 맞춘갯수 초기화
-				ExButton.score = 0; // 남은생명 초기화
+				QuizPlay.quizAA = 0; // 맞춘갯수 초기화
+				QuizPlay.score = 0; // 남은생명 초기화
 				mainFrame.dispose();
 				th.stop();
-				Mainbar.LLL.setVisible(true);
+				QuizMain.LLL.setVisible(true);
 			}
 		}); // 리스너 처리구간
 
@@ -358,10 +358,10 @@ public class ExButton extends JFrame implements Runnable {
 		// 기록갱신
 		mainFrame.dispose();
 		score = 0;
-		SUB d = new SUB();
+		QuizGameOver d = new QuizGameOver();
 		d.setSize(500, 500);
 		d.setVisible(true);
-		SUB.RANA();
+		QuizGameOver.RANA();
 	}
 }
 

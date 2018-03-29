@@ -14,22 +14,22 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import DB.DBQuery;
-import main.Main_GUI;
+import main.MainGUI;
 
-public class Suttda_GUI extends JFrame {
+public class SuttdaGUI extends JFrame {
 	static int sc = 1000;
 	static int radioScore = 100;
 	
-	Suttda_GUI(int playerCard[], int comCard[]) {
+	SuttdaGUI(int playerCard[], int comCard[]) {
 		
 		
 		System.out.println(Suttda.result);
 		this.addWindowListener(new WindowAdapter() {	
 			public void windowClosing(WindowEvent windowEvent) {	//우측 상단의 X버튼을 누르면
 				DBQuery.savePoker();//포커 점수를 DB에 저장
-				Suttda_GUI.this.setVisible(false);	//서브 프레임이므로 X클릭 시, 보이지 않게 하고
-				Suttda_GUI.this.dispose();// 자원을 회수
-				Main_GUI.frame.setVisible(true);	//숨겨 뒀던 메인프레임을 다시 보여준다
+				SuttdaGUI.this.setVisible(false);	//서브 프레임이므로 X클릭 시, 보이지 않게 하고
+				SuttdaGUI.this.dispose();// 자원을 회수
+				MainGUI.frame.setVisible(true);	//숨겨 뒀던 메인프레임을 다시 보여준다
 			}
 		});
 		setTitle("인생은 한방 섯다");
@@ -138,7 +138,7 @@ public class Suttda_GUI extends JFrame {
 					} else if (flag == JOptionPane.CLOSED_OPTION) {
 					} else {
 						dispose();
-						Main_GUI.frame.setVisible(true);
+						MainGUI.frame.setVisible(true);
 					}
 					;
 				}else if (Suttda.result == 2) {
@@ -153,7 +153,7 @@ public class Suttda_GUI extends JFrame {
 					} else if (flag == JOptionPane.CLOSED_OPTION) {
 					} else {
 						dispose();
-						Main_GUI.frame.setVisible(true);
+						MainGUI.frame.setVisible(true);
 					}
 
 				} else if (Suttda.result == 3) {
@@ -168,7 +168,7 @@ public class Suttda_GUI extends JFrame {
 					} else if (flag == JOptionPane.CLOSED_OPTION) {
 					} else {
 						dispose();
-						Main_GUI.frame.setVisible(true);
+						MainGUI.frame.setVisible(true);
 					}
 					
 				}

@@ -6,16 +6,18 @@ import java.util.Iterator;
 
 public class Calculation {
 
-	private Rank[] ranks = new Rank[10];
-	private ArrayList<Card> playerCards;
-	private ArrayList<Card> comCards;
-	private String winner;
-	public Calculation(ArrayList<Card> playerCards, ArrayList<Card> comCards) {
+	private Rank[] ranks = new Rank[10];	// 족보 결과를 저장하는 Rank클래스 배열
+	private ArrayList<Card> playerCards;	//플레이어 카드 ArrayList
+	private ArrayList<Card> comCards;		//컴퓨터 카드 ArrayList
+	private String winner;	//컴퓨터와 플레이어 중 승리한 사람의 이름을 담는 문자열 변수
+	
+	//생성자에서 매개변수로 받아온 ArrayList를 지금 클래스의 변수에 대입
+	public Calculation(ArrayList<Card> playerCards, ArrayList<Card> comCards) {	
 		this.playerCards = playerCards;
 		this.comCards = comCards;
 	}
 
-	private Rank isFourCard_Fullhouse(ArrayList<Card> cardDeck) {
+	private Rank isFourCard_Fullhouse(ArrayList<Card> cardDeck) {	//풀하우스와 포카드를 체크하는 메소드
 
 		// count와 check수에 따라 풀하우스 또는 포카드 를 구분
 		int i = 0, count = 0, check = 0;
@@ -23,7 +25,7 @@ public class Calculation {
 		int sequence = 0;
 		// 포카드일 경우 포카드의 숫자, 풀하우스일 경우 같은 3장의 숫자를 저장하는 변수
 		int num = 0;
-		// sequence가 3이라면 fourCard_check가 true가 되어 포카드, false라면 풀하우스
+		// sequence가 3일때 fourCard_check가 true라면 포카드, false라면 풀하우스
 		boolean fourCard_check = false;
 		int[] Straight = new int[5];
 		Iterator<Card> it = cardDeck.iterator();
@@ -63,7 +65,7 @@ public class Calculation {
 		}
 	}
 
-	private Rank isStraightFlush(ArrayList<Card> cardDeck) {
+	private Rank isStraightFlush(ArrayList<Card> cardDeck) {	//로얄 & 백 & 스트레이트 플러시를 체크하는 메소드
 
 		int[] Cards = new int[5];
 		//스트레이트인지 플러시인지 확인 한 결과값을 담는 변수
@@ -102,7 +104,7 @@ public class Calculation {
 		}
 	}
 
-	private Rank isPair(ArrayList<Card> cardDeck) {
+	private Rank isPair(ArrayList<Card> cardDeck) {	// 하이카드, 원페어 등 페어를 체크하는 메소드
 
 		// count와 check수에 따라 (트리플 또는 투 페어), 원 페어, 하이카드 를 구분
 		int i = 0, count = 0, check = 0;
@@ -110,7 +112,7 @@ public class Calculation {
 		int sequence = 0;
 
 		int sameCard1 = 0, sameCard2 = 0;
-		// sequence가 2라면 continue_check가 true가 되어 트리플, false라면 투 페어
+		// sequence가 2일때 continue_check가 true라면 트리플, false라면 투 페어
 		boolean continue_check = false;
 		int[] Straight = new int[5];
 		Iterator<Card> it = cardDeck.iterator();
@@ -163,7 +165,7 @@ public class Calculation {
 		}
 	}
 
-	private Rank isStraight(ArrayList<Card> cardDeck) {
+	private Rank isStraight(ArrayList<Card> cardDeck) {	//마운틴 & 백스트레이트 & 스트레이트를 체크하는 메소드
 
 		int i = 0;
 		int[] Straight = new int[5];
@@ -190,7 +192,7 @@ public class Calculation {
 		}
 	}
 
-	public Rank isFlush(ArrayList<Card> cardDeck) {
+	public Rank isFlush(ArrayList<Card> cardDeck) {	//플러시를 체크하는 메소드
 
 		int[] Ranks = new int[5];
 		int heart = 0, clover = 0, diamond = 0, spade = 0, i = 0, temp;
@@ -421,7 +423,7 @@ public class Calculation {
 			new PokerGUI(playerCards, comCards,ranks[9].getResult(),winner,2);
 			return 0;
 		}
-		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 스트레이트, 마운틴, 백스트레이트 만 비교
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 트리플, 투 페어, 원 페어, 하이카드 를 구분해주는 메소드
 		return 0;
 	}
 	

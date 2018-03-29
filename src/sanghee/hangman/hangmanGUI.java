@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import main.Main_GUI;
+import main.MainGUI;
 
 public class hangmanGUI extends JFrame {
 	
@@ -32,7 +32,7 @@ public class hangmanGUI extends JFrame {
 			public void windowClosing(WindowEvent windowEvent) {
 				frame.setVisible(false);
 				frame.dispose();
-				Main_GUI.frame.setVisible(true);
+				MainGUI.frame.setVisible(true);
 				//기존 행맨게임 자원을 회수하고 메인프레임을 보여준다.
 			}
 		});

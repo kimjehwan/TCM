@@ -22,15 +22,15 @@ import DB.DBQuery;
 import jehwan.poker.PokerMain;
 import jihong.suttda.Suttda;
 import sanghee.hangman.hangmanMain;
-import taehwan.quiz.Mainbar;
+import taehwan.quiz.QuizMain;
 
-public class Main_GUI extends JFrame{
+public class MainGUI extends JFrame{
 	public static JFrame frame; //프레임 전역변수 생성
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public Main_GUI(){
+	public MainGUI(){
 		//지금 프레임을 전역변수로 지정한 변수에 지정
 		frame = this;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -122,7 +122,7 @@ public class Main_GUI extends JFrame{
 			}
 		});
 		panel3.add(signIn);
-		
+		//회원가입 페이지로 넘어가는 버튼 값 제공
 		JButton signUp = new JButton("회 원 가 입");
 		signUp.setPreferredSize(new Dimension(100, 30));
 		signUp.addActionListener(new ActionListener() {
@@ -132,7 +132,7 @@ public class Main_GUI extends JFrame{
 				if((JButton)obj==signUp) {
 					final Frame fs = new Frame("회원가입 결과");
 					fs.setVisible(true);
-					
+					//아이디와 비밀번호는 1글자 이상 15이하로 한다.
 					if(((jtf.getText().length())<=0 || (jtf.getText().length())>15) ||
 							((jpf.getPassword().length)<=0 || (jpf.getPassword().length)>15))
 					{
@@ -143,14 +143,14 @@ public class Main_GUI extends JFrame{
 					}else {
 						DBQuery query = new DBQuery();
 						boolean check = query.signUp(new String(jtf.getText()), new String(jpf.getPassword()), true);
-						
+						//DB에 중복된 값이 없다면 회원가입 성공
 						if(check) {
 							fs.add(new JLabel("회원가입 성공"));
-						}else {
+						}else {	//있다면 아래의 문자를 출력한다.
 							fs.add(new JLabel("해당 아이디가 이미 존재합니다."));
 						}
 					}
-					
+					//완료되면 회원가입 창을 닫는다.
 					fs.addWindowListener(new WindowAdapter() {
 						public void windowClosing(WindowEvent e) {
 							fs.setVisible(false);
@@ -162,8 +162,9 @@ public class Main_GUI extends JFrame{
 				}
 			}
 		});
+		//여기서 부터는 게임으로 넘어가는 GUI이다.
 		panel3.add(signUp);
-		
+		//패널을 제공한다.
 		panel4.setBounds(10, 210, 420, 150);
 		panel4.add(panel1);
 		panel4.add(panel2);
@@ -174,7 +175,7 @@ public class Main_GUI extends JFrame{
 		panel5.setBounds(10, 360, 420, 190);
 		panel5.setVisible(false);
 		this.add(panel5);
-		
+		//버튼 1은 포커게임으로한다.
 		JButton btn1 = new JButton("포커 ",img2);
 		btn1.setFont(new Font("맑은고딕", Font.BOLD, 20));
 		btn1.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -185,13 +186,13 @@ public class Main_GUI extends JFrame{
 				Object obj = e.getSource();
 				if((JButton)obj==btn1) {
 					PokerMain poker = new PokerMain();
-					poker.run();
-					setVisible(false);
+					poker.run();//포커게임을 시작한다.
+					setVisible(false);//게임선택창을 숨긴다.
 				}
 			}
 		});
 		panel5.add(btn1);
-		
+		//버튼2는 퀴즈게임으로 설정한다.
 		JButton btn2 = new JButton(" 퀴즈게임 ",img4);
 		btn2.setFont(new Font("맑은고딕", Font.BOLD, 20));
 		btn2.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -201,14 +202,15 @@ public class Main_GUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				Object obj = e.getSource();
 				if((JButton)obj==btn2) {
-					Mainbar b = new Mainbar();
-					b.main(null);
-					setVisible(false);
+					QuizMain b = new QuizMain();
+					b.main(null);//퀴즈게임을 시작한다.
+					setVisible(false);//게임선택창을 숨긴다.
 				}
+				
 			}
 		});
 		panel5.add(btn2);
-		
+		//버튼3은 섯다게임으로 설정한다.
 		JButton btn3 = new JButton(" 섯다 ",img3);
 		btn3.setFont(new Font("맑은고딕", Font.BOLD, 20));
 		btn3.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -218,13 +220,13 @@ public class Main_GUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				Object obj = e.getSource();
 				if((JButton)obj==btn3) {
-					Suttda.play();
-					setVisible(false);
+					Suttda.play();//섯다게임을 시작한다.
+					setVisible(false);//게임선택창을 숨긴다.
 				}
 			}
 		});
 		panel5.add(btn3);
-		
+		//버튼 4는 행맨게임으로 설정한다.
 		JButton btn4 = new JButton(" 행맨게임 ",img5);
 		btn4.setFont(new Font("맑은고딕", Font.BOLD, 20));
 		btn4.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -234,8 +236,8 @@ public class Main_GUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				Object obj = e.getSource();
 				if((JButton)obj==btn4) {
-					hangmanMain.run();
-					setVisible(false);
+					hangmanMain.run();//행맨게임을 시작한다.
+					setVisible(false);//게임선택창을 숨긴다.
 				}
 			}
 		});
@@ -247,7 +249,8 @@ public class Main_GUI extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		new  Main_GUI();
+		//GUI메인으로 부르는 생성자를 생성한다.
+		new  MainGUI();
 		Intro itr = new Intro();
 		itr.intro();
 	}
